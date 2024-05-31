@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import Card from './components/Card';
+import Header from './components/Header';
+import Drawer from './components/Drawer';
+import Footer from './components/Footer/Footer';
 
 function App() {
+  const [items, setItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartOpened, setCartOpened] = useState(false);
+
+  useEffect(() => {
+    fetch('https://6659e945de346625136e669b.mockapi.io/items')
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      {cartOpened && (
+        <Drawer items={cartItems} onClose={() => setCartOpened(false)} />
+      )}
+      <Header onClickCart={() => setCartOpened(true)} />
+      <div className="content">
+        <h1>BELIEBTE PRODUKTE</h1>
+
+        <div className="foods">
+          {items.map((obj) => (
+            <Card
+              titel={obj.titel}
+              info={obj.info}
+              preis={obj.preis}
+              imageUrl={obj.imageUrl}
+              onSelect={() => console.log(obj)}
+            />
+          ))}
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 }
