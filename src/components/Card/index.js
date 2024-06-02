@@ -1,16 +1,16 @@
 import styles from './Card.module.scss';
 
-function Card(props) {
+function Card({ imageUrl, titel, info, preis, onSelect }) {
   return (
     <div className={styles.card}>
-      <img width={120} height={120} src={props.imageUrl} alt="Essen" />
-      <p style={{ fontWeight: 'bold' }}>{props.titel}</p>
+      <img width={120} height={120} src={imageUrl} alt="Essen" />
+      <p className={styles.titel}>{titel}</p>
       <div>
         <div>
-          <p>{props.info}</p>
-          <b>{props.preis}</b>
+          <p className={styles.info}>{info}</p>
+          <b>{preis}</b>
         </div>
-        <button className={styles.button} onClick={props.onSelect}>
+        <button className={styles.button} onClick={onSelect}>
           Auswählen
         </button>
       </div>

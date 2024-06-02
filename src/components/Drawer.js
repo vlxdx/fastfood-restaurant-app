@@ -41,7 +41,7 @@ function Drawer({ onClose, items = [] }) {
               <b>100,00 EUR</b>
             </li>
             <li>
-              <span>7%:</span>
+              <span>MwSt.:</span>
               <div></div>
               <b>7,00 EUR</b>
             </li>

@@ -19,6 +19,10 @@ function App() {
       });
   }, []);
 
+  const onAddtoConfigurator = () => {
+    alert('Going to Configurator');
+  };
+
   return (
     <div className="wrapper">
       {cartOpened && (
@@ -29,18 +33,18 @@ function App() {
         <h1>BELIEBTE PRODUKTE</h1>
 
         <div className="foods">
-          {items.map((obj) => (
+          {items.map((item) => (
             <Card
-              titel={obj.titel}
-              info={obj.info}
-              preis={obj.preis}
-              imageUrl={obj.imageUrl}
-              onSelect={() => console.log(obj)}
+              titel={item.titel}
+              info={item.info}
+              preis={item.preis}
+              imageUrl={item.imageUrl}
+              onSelect={onAddtoConfigurator}
             />
           ))}
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

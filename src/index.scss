@@ -22,39 +22,29 @@ a {
   text-decoration: none;
 }
 
-.wrapper {
-  margin: 50px 50px;
-}
-
 header {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #d20000;
+  margin: 0 120px;
 
-  .headerLeft {
+  ul {
     display: flex;
-    align-items: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 20px;
+  }
 
-    img {
-      margin-right: 250px;
-    }
-
-    ul {
-      display: flex;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    li {
-      margin-right: 49px;
-    }
+  li {
+    margin-right: 49px;
   }
 
   .headerRight {
     display: flex;
     align-items: center;
-    font-weight: normal;
+    font-weight: 400;
+    font-size: 20px;
     cursor: pointer;
   }
 }
@@ -64,13 +54,18 @@ header {
 
   h1 {
     margin: 0;
+    margin-left: 80px;
     margin-bottom: 40px;
+    font-weight: 300;
+    font-size: 60px;
+    color: #d20000;
   }
 }
 
 .foods {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .overlay {
