@@ -1,9 +1,15 @@
+import { Link } from 'react-router-dom';
+
 function Header(props) {
   return (
     <header>
-      <img width={77} height={77} src="/img/logo.png" alt="Logo" />
+      <Link to="/">
+        <img width={77} height={77} src="/img/logo.png" alt="Logo" />
+      </Link>
       <ul>
-        <li>Bestellen</li>
+        <Link to="/bestellen">
+          <li>Bestellen</li>
+        </Link>
         <li>My Order</li>
       </ul>
       <h4 onClick={props.onClickCart} className="headerRight">

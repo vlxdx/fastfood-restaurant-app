@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Card from './components/Card';
+import { Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import Header from './components/Header';
 import Drawer from './components/Drawer';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer';
+import Impressum from './pages/Impressum';
+import Home from './pages/Home';
+import Bestellen from './pages/Bestellen';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -10,17 +14,15 @@ function App() {
   const [cartOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
-    fetch('https://6659e945de346625136e669b.mockapi.io/items')
+    axios
+      .get('https://6659e945de346625136e669b.mockapi.io/items')
       .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        setItems(json);
+        setItems(res.data);
       });
   }, []);
 
   const onAddtoConfigurator = () => {
-    alert('Going to Configurator');
+    alert('Going to Bestellen');
   };
 
   return (
@@ -29,21 +31,19 @@ function App() {
         <Drawer items={cartItems} onClose={() => setCartOpened(false)} />
       )}
       <Header onClickCart={() => setCartOpened(true)} />
-      <div className="content">
-        <h1>BELIEBTE PRODUKTE</h1>
 
-        <div className="foods">
-          {items.map((item) => (
-            <Card
-              titel={item.titel}
-              info={item.info}
-              preis={item.preis}
-              imageUrl={item.imageUrl}
-              onSelect={onAddtoConfigurator}
-            />
-          ))}
-        </div>
-      </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home items={items} onAddtoConfigurator={onAddtoConfigurator} />
+          }
+        />
+
+        <Route path="/bestellen" element={<Bestellen />} />
+
+        <Route path="/impressum" element={<Impressum />} />
+      </Routes>
       <Footer />
     </div>
   );

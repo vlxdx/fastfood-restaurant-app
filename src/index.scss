@@ -38,6 +38,7 @@ header {
 
   li {
     margin-right: 49px;
+    color: #323232;
   }
 
   .headerRight {
@@ -59,6 +60,40 @@ header {
     font-weight: 300;
     font-size: 60px;
     color: #d20000;
+  }
+}
+
+.cartEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+
+  p {
+    width: 280px;
+    line-height: 24px;
+    opacity: 0.6;
+  }
+
+  .orangeButton {
+    width: 245px;
+    margin-top: 20px;
+
+    &:hover {
+      img {
+        transform: rotate(180deg) translateX(3px);
+      }
+    }
+
+    img {
+      position: relative;
+      top: 1px;
+      transform: rotate(180deg);
+      margin-right: 15px;
+      transition: transform 0.15s ease-in-out;
+    }
   }
 }
 
