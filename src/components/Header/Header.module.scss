@@ -1,0 +1,28 @@
+header {
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d20000;
+  color: #323232;
+  margin: 0 120px;
+
+  .headerCenter {
+    display: flex;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 20px;
+  }
+
+  .myOrder {
+    padding-left: 49px;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

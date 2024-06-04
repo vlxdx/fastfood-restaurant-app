@@ -1,7 +1,9 @@
+import styles from './Drawer.module.scss';
+
 function Drawer({ onClose, items = [] }) {
   return (
-    <div className="overlay">
-      <div className="drawer">
+    <div className={styles.overlay}>
+      <div className={styles.drawer}>
         <h2>
           Warenkorb
           <img
@@ -14,20 +16,20 @@ function Drawer({ onClose, items = [] }) {
 
         {items.length > 0 ? (
           <div style={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
-            <div className="items">
+            <div className={styles.items}>
               {items.map((obj) => (
-                <div className="cartItem">
+                <div className={styles.cartItem}>
                   <div
                     style={{ backgroundImage: `url({obj.imageUrl})` }}
-                    className="cartItemImg"
+                    className={styles.cartItemImg}
                   ></div>
 
-                  <div className="food">
+                  <div className={styles.food}>
                     <p>{obj.titel}</p>
                     <b>{obj.preis}</b>
                   </div>
                   <img
-                    className="removeBtn"
+                    className={styles.removeBtn}
                     src="/img/btn-remove.svg"
                     alt="Remove"
                   />
@@ -35,7 +37,7 @@ function Drawer({ onClose, items = [] }) {
               ))}
             </div>
 
-            <div className="cartTotalBlock">
+            <div className={styles.cartTotalBlock}>
               <ul>
                 <li>
                   <span>Gesamtpreis:</span>
@@ -48,13 +50,13 @@ function Drawer({ onClose, items = [] }) {
                   <b>7,00 EUR</b>
                 </li>
               </ul>
-              <button className="orangeButton">
+              <button className={styles.orangeButton}>
                 Weiter zur Kasse <img src="/img/arrow.svg" alt="Arrow" />
               </button>
             </div>
           </div>
         ) : (
-          <div class="cartEmpty">
+          <div className={styles.cartEmpty}>
             <img
               width="120px"
               height="120px"
@@ -63,7 +65,7 @@ function Drawer({ onClose, items = [] }) {
             />
             <h2>Ihr Warenkorb ist leer</h2>
             <p>Weiter einkaufen</p>
-            <button onClick={onClose} class="orangeButton">
+            <button onClick={onClose} className={styles.orangeButton}>
               <img src="/img/arrow.svg" alt="Arrow" />
               Zurück
             </button>

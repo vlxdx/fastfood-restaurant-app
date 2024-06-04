@@ -1,0 +1,107 @@
+.getraenke {
+  color: #323232;
+  display: flex;
+  margin: 120px;
+  margin-left: 77px;
+  margin-right: 0;
+
+  .getraenkeText {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 80px;
+      color: #d20000;
+    }
+
+    p {
+      margin-bottom: 88px;
+    }
+  }
+}
+
+.configurator {
+  border-top: 1px solid #d20000;
+  padding-top: 6px;
+
+  .auswaehl {
+    padding: 24px;
+    font-weight: 800;
+    font-size: 24px;
+    color: #d20000;
+    text-transform: uppercase;
+  }
+
+  .drink {
+    padding: 24px;
+    border-bottom: 1px dashed #000000;
+  }
+
+  .drinkName {
+    padding-bottom: 24px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .buttonHinzufuegen {
+    width: 260px;
+    height: 60px;
+    border: none;
+    background: #d20000;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 24px;
+    text-transform: capitalize;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .buttonCounter {
+    display: flex;
+    justify-content: center;
+    width: 181px;
+    height: 60px;
+    background: #ededed;
+    border-radius: 30px;
+
+    .buttonPlus {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .input {
+      width: 90px;
+      background: none;
+      border: none;
+    }
+
+    .buttonMinus {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .buttonLoeschen {
+    background: none;
+    border: none;
+    font-size: 24px;
+    text-decoration-line: underline;
+    text-transform: capitalize;
+    color: #d20000;
+    cursor: pointer;
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import axios from 'axios';
-import Header from './components/Header';
-import Drawer from './components/Drawer';
+import Header from './components/Header/Header';
+import Drawer from './components/Drawer/Drawer';
 import Footer from './components/Footer';
 import Impressum from './pages/Impressum';
 import Home from './pages/Home';
@@ -21,10 +21,6 @@ function App() {
       });
   }, []);
 
-  const onAddtoConfigurator = () => {
-    alert('Going to Bestellen');
-  };
-
   return (
     <div className="wrapper">
       {cartOpened && (
@@ -33,14 +29,9 @@ function App() {
       <Header onClickCart={() => setCartOpened(true)} />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home items={items} onAddtoConfigurator={onAddtoConfigurator} />
-          }
-        />
+        <Route path="/" element={<Home items={items} />} />
 
-        <Route path="/bestellen" element={<Bestellen />} />
+        <Route path="/bestellen/*" element={<Bestellen />} />
 
         <Route path="/impressum" element={<Impressum />} />
       </Routes>

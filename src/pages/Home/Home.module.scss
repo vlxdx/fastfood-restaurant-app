@@ -1,0 +1,27 @@
+.content {
+  min-height: calc(100vh - 180px);
+  padding: 40px 40px;
+
+  h1 {
+    margin: 0;
+    margin-left: 80px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    font-size: 80px;
+    color: #d20000;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  .foods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

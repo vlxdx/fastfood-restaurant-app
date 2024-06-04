@@ -1,11 +1,30 @@
+import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
+import styles from './Home.module.scss';
 
-function Home({ items, onAddtoConfigurator }) {
+function Home({ items }) {
   return (
-    <div className="content">
-      <h1>BELIEBTE PRODUKTE</h1>
+    <div className={styles.content}>
+      <h1>UNSER MENÜ</h1>
+      <div className={styles.menu}>
+        <Link to="/bestellen/sandwiches">
+          <div style={{ color: '#323232' }}>Sandwiches</div>
+        </Link>
+        <Link to="/bestellen/burger">
+          <div style={{ color: '#323232' }}>Burger</div>
+        </Link>
+        <Link to="/bestellen/beilagen">
+          <div style={{ color: '#323232' }}>Beilagen</div>
+        </Link>
+        <Link to="/bestellen/salate">
+          <div style={{ color: '#323232' }}>Salate</div>
+        </Link>
+        <Link to="/bestellen/getraenke">
+          <div style={{ color: '#323232' }}>Getränke</div>
+        </Link>
+      </div>
 
-      <div className="foods">
+      <div className={styles.foods}>
         {items.map((item, titel) => (
           <Card
             key={titel}
@@ -13,7 +32,6 @@ function Home({ items, onAddtoConfigurator }) {
             info={item.info}
             preis={item.preis}
             imageUrl={item.imageUrl}
-            onSelect={onAddtoConfigurator}
           />
         ))}
       </div>
