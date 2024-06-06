@@ -36,9 +36,32 @@ function App() {
     });
   };
 
+  const removeFromCart = (item) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find(
+        (cartItem) => cartItem.Name === item.Name
+      );
+      if (existingItem.quantity === 1) {
+        return prevCart.filter((cartItem) => cartItem.Name !== item.Name);
+      } else {
+        return prevCart.map((cartItem) =>
+          cartItem.Name === item.Name
+            ? { ...cartItem, quantity: cartItem.quantity - 1 }
+            : cartItem
+        );
+      }
+    });
+  };
+
   return (
     <div className="wrapper">
-      {cartOpened && <Cart cart={cart} onClose={() => setCartOpened(false)} />}
+      {cartOpened && (
+        <Cart
+          cart={cart}
+          removeFromCart={removeFromCart}
+          onClose={() => setCartOpened(false)}
+        />
+      )}
       <Header onClickCart={() => setCartOpened(true)} />
 
       <Routes>
@@ -59,7 +82,7 @@ function App() {
             path="sandwiches"
             element={
               <Sandwiches
-                items={menuData.Speisekarte.Kategorien[1].Optionen}
+                items={menuData.Speisekarte.Kategorien[1].Artikel}
                 addToCart={addToCart}
               />
             }
@@ -68,7 +91,7 @@ function App() {
             path="burger"
             element={
               <Burger
-                items={menuData.Speisekarte.Kategorien[2].Optionen}
+                items={menuData.Speisekarte.Kategorien[2].Artikel}
                 addToCart={addToCart}
               />
             }

@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './Cart.module.scss';
 
-function Cart({ onClose, cart = [] }) {
+function Cart({ cart, removeFromCart, onClose }) {
   const total = cart
     .reduce((sum, item) => sum + item.quantity * item.Preis, 0)
     .toFixed(2);
+
+  const steuer = (total / 100) * 7;
 
   return (
     <div className={styles.overlay}>
@@ -13,9 +15,9 @@ function Cart({ onClose, cart = [] }) {
           Warenkorb
           <img
             onClick={onClose}
-            style={{ cursor: 'pointer' }}
+            className={styles.removeBtn}
             src="/img/btn-remove.svg"
-            alt="Close"
+            alt="Entfernen"
           />
         </h2>
 
@@ -23,12 +25,19 @@ function Cart({ onClose, cart = [] }) {
           <div style={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
             <div className={styles.items}>
               {cart.map((item) => (
-                <li key={item.Name}>
-                  {item.Name} - {item.quantity} x €{item.Preis.toFixed(2)}
-                </li>
+                <div key={item.Name} className={styles.cartItem}>
+                  <div>
+                    {item.Name} - {item.quantity} x {item.Preis.toFixed(2)} EUR
+                  </div>
+                  <img
+                    onClick={() => removeFromCart(item)}
+                    className={styles.removeBtn}
+                    src="/img/btn-remove.svg"
+                    alt="Löschen"
+                  />
+                </div>
               ))}
             </div>
-
             <div className={styles.cartTotalBlock}>
               <ul>
                 <li>
@@ -39,7 +48,7 @@ function Cart({ onClose, cart = [] }) {
                 <li>
                   <span>inkl. MwSt.:</span>
                   <div></div>
-                  <b>7,00 EUR</b>
+                  <b>{steuer.toFixed(2)} EUR</b>
                 </li>
               </ul>
               <button className={styles.orangeButton}>
