@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fastfood-restaurant-app/static/css/main.700c5506.css",
-    "main.js": "/fastfood-restaurant-app/static/js/main.4edb6835.js",
+    "main.js": "/fastfood-restaurant-app/static/js/main.9717d749.js",
     "index.html": "/fastfood-restaurant-app/index.html",
     "main.700c5506.css.map": "/fastfood-restaurant-app/static/css/main.700c5506.css.map",
-    "main.4edb6835.js.map": "/fastfood-restaurant-app/static/js/main.4edb6835.js.map"
+    "main.9717d749.js.map": "/fastfood-restaurant-app/static/js/main.9717d749.js.map"
   },
   "entrypoints": [
     "static/css/main.700c5506.css",
-    "static/js/main.4edb6835.js"
+    "static/js/main.9717d749.js"
   ]
 }
