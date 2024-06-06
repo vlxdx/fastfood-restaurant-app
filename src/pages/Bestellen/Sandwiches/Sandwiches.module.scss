@@ -69,4 +69,15 @@
       background: darken(#d20000, 5%);
     }
   }
+
+  label {
+    margin-left: 10px;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #d20000;
+  }
+
+  input {
+    margin-bottom: 10px;
+  }
 }

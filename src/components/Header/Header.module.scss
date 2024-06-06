@@ -25,12 +25,18 @@ header {
   .myOrder {
     padding-left: 49px;
   }
+}
 
-  .headerRight {
-    display: flex;
-    align-items: center;
-    font-weight: 400;
+.headerRight {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 20px;
+  cursor: pointer;
+
+  span {
+    font-weight: 800;
     font-size: 20px;
-    cursor: pointer;
+    color: #d20000;
   }
 }

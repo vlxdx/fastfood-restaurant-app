@@ -69,8 +69,7 @@ function Bestellen() {
               Ipsum Lorem dlor estIpsum Lorem dlor estIpsum Lorem dlor estIpsum
               Lorem dlor estIpsum Lorem dlor estIpsum Lorem dlor estIpsum Lorem
               dlor estIpsum Lorem dlor estIpsum Lorem dlor estIpsum Lorem dlor
-              estIpsum Lorem dlor estIpsum Lorem dlor estIpsum Lorem dlor
-              estIpsum Lorem dlor est
+              estIpsum
             </p>
           </div>
           <div className={styles.bottomMenu}>

@@ -13,6 +13,7 @@ import Burger from './pages/Bestellen/Burger';
 import Beilagen from './pages/Bestellen/Beilagen';
 import Salate from './pages/Bestellen/Salate';
 import menuData from './data/menu.json';
+import AppContext from './context';
 
 function App() {
   const [cartOpened, setCartOpened] = useState(false);
@@ -54,72 +55,74 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
-      {cartOpened && (
-        <Cart
-          cart={cart}
-          removeFromCart={removeFromCart}
-          onClose={() => setCartOpened(false)}
-        />
-      )}
-      <Header onClickCart={() => setCartOpened(true)} />
+    <AppContext.Provider value={{ cart, addToCart, setCartOpened }}>
+      <div className="wrapper">
+        {cartOpened && (
+          <Cart
+            cart={cart}
+            removeFromCart={removeFromCart}
+            onClose={() => setCartOpened(false)}
+          />
+        )}
+        <Header onClickCart={() => setCartOpened(true)} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/bestellen" element={<Bestellen />}>
-          <Route path="" element={<Bestellauswahl />} />
-          <Route
-            path="getraenke"
-            element={
-              <Getraenke
-                items={menuData.Speisekarte.Kategorien[0].Artikel}
-                addToCart={addToCart}
-              />
-            }
-          />
-          <Route
-            path="sandwiches"
-            element={
-              <Sandwiches
-                items={menuData.Speisekarte.Kategorien[1].Artikel}
-                addToCart={addToCart}
-              />
-            }
-          />
-          <Route
-            path="burger"
-            element={
-              <Burger
-                items={menuData.Speisekarte.Kategorien[2].Artikel}
-                addToCart={addToCart}
-              />
-            }
-          />
-          <Route
-            path="beilagen"
-            element={
-              <Beilagen
-                items={menuData.Speisekarte.Kategorien[3].Artikel}
-                addToCart={addToCart}
-              />
-            }
-          />
-          <Route
-            path="salate"
-            element={
-              <Salate
-                items={menuData.Speisekarte.Kategorien[4].Artikel}
-                addToCart={addToCart}
-              />
-            }
-          />
-        </Route>
+          <Route path="/bestellen" element={<Bestellen />}>
+            <Route path="" element={<Bestellauswahl />} />
+            <Route
+              path="getraenke"
+              element={
+                <Getraenke
+                  items={menuData.Speisekarte.Kategorien[0].Artikel}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="sandwiches"
+              element={
+                <Sandwiches
+                  items={menuData.Speisekarte.Kategorien[1].Artikel}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="burger"
+              element={
+                <Burger
+                  items={menuData.Speisekarte.Kategorien[2].Artikel}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="beilagen"
+              element={
+                <Beilagen
+                  items={menuData.Speisekarte.Kategorien[3].Artikel}
+                  addToCart={addToCart}
+                />
+              }
+            />
+            <Route
+              path="salate"
+              element={
+                <Salate
+                  items={menuData.Speisekarte.Kategorien[4].Artikel}
+                  addToCart={addToCart}
+                />
+              }
+            />
+          </Route>
 
-        <Route path="/impressum" element={<Impressum />} />
-      </Routes>
-      <Footer />
-    </div>
+          <Route path="/impressum" element={<Impressum />} />
+        </Routes>
+        <Footer />
+      </div>
+    </AppContext.Provider>
   );
 }
 
