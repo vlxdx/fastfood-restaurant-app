@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fastfood-restaurant-app/static/css/main.700c5506.css",
+    "main.js": "/fastfood-restaurant-app/static/js/main.1e1cc6ea.js",
+    "index.html": "/fastfood-restaurant-app/index.html",
+    "main.700c5506.css.map": "/fastfood-restaurant-app/static/css/main.700c5506.css.map",
+    "main.1e1cc6ea.js.map": "/fastfood-restaurant-app/static/js/main.1e1cc6ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.700c5506.css",
+    "static/js/main.1e1cc6ea.js"
+  ]
+}
