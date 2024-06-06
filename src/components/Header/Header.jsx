@@ -9,7 +9,7 @@ function Header(props) {
       </Link>
       <div className={styles.headerCenter}>
         <Link to="/bestellen">
-          <div style={{ color: '#323232' }}>Bestellen</div>
+          <div className={styles.item}>Bestellen</div>
         </Link>
         <div className={styles.myOrder}>My Order</div>
       </div>

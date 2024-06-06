@@ -1,6 +1,7 @@
+import React from 'react';
 import styles from './Beilagen.module.scss';
 
-function Beilagen() {
+function Beilagen({ items, addToCart }) {
   return (
     <div className={styles.beilagen}>
       <div className={styles.beilagenText}>
@@ -14,9 +15,16 @@ function Beilagen() {
           est
         </p>
         <div className={styles.configurator}>
-          <div className={styles.auswaehl}>Auswähl:</div>
+          <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.beilage}>
-            <div className={styles.beilageName}>Fries:</div>
+            <ul>
+              {items.map((item) => (
+                <li key={item.Name}>
+                  {item.Name} - {item.Preis.toFixed(2)} EUR
+                  <button onClick={() => addToCart(item)}>Hinzufügen</button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

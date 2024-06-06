@@ -14,6 +14,14 @@ header {
     font-size: 20px;
   }
 
+  .item {
+    color: #323232;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .myOrder {
     padding-left: 49px;
   }

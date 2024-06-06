@@ -30,7 +30,7 @@
   border-top: 1px solid #d20000;
   padding-top: 6px;
 
-  .auswaehl {
+  .auswahl {
     padding: 24px;
     font-weight: 800;
     font-size: 24px;
@@ -39,13 +39,41 @@
   }
 
   .beilage {
-    padding: 24px;
-    border-bottom: 1px dashed #000000;
-  }
-
-  .beilageName {
-    padding-bottom: 24px;
+    padding-left: 24px;
     font-weight: 700;
     font-size: 20px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  button {
+    width: 160px;
+    height: 60px;
+    border: none;
+    background: #d20000;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #ffffff;
+    cursor: pointer;
+
+    &:disabled {
+      background-color: #bebebe !important;
+      cursor: default;
+    }
+
+    &:hover {
+      background: lighten(#d20000, 5%);
+    }
+
+    &:active {
+      background: darken(#d20000, 5%);
+    }
   }
 }

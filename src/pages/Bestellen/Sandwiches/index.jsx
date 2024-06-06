@@ -14,7 +14,7 @@ function Sandwiches() {
           est
         </p>
         <div className={styles.configurator}>
-          <div className={styles.auswaehl}>Auswähl:</div>
+          <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.sandwich}>
             <div className={styles.sandwichName}>Sandwich:</div>
           </div>

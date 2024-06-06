@@ -1,9 +1,14 @@
-import styles from './Drawer.module.scss';
+import React from 'react';
+import styles from './Cart.module.scss';
 
-function Drawer({ onClose, items = [] }) {
+function Cart({ onClose, cart = [] }) {
+  const total = cart
+    .reduce((sum, item) => sum + item.quantity * item.Preis, 0)
+    .toFixed(2);
+
   return (
     <div className={styles.overlay}>
-      <div className={styles.drawer}>
+      <div className={styles.cart}>
         <h2>
           Warenkorb
           <img
@@ -14,26 +19,13 @@ function Drawer({ onClose, items = [] }) {
           />
         </h2>
 
-        {items.length > 0 ? (
+        {cart.length > 0 ? (
           <div style={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
             <div className={styles.items}>
-              {items.map((obj) => (
-                <div className={styles.cartItem}>
-                  <div
-                    style={{ backgroundImage: `url({obj.imageUrl})` }}
-                    className={styles.cartItemImg}
-                  ></div>
-
-                  <div className={styles.food}>
-                    <p>{obj.titel}</p>
-                    <b>{obj.preis}</b>
-                  </div>
-                  <img
-                    className={styles.removeBtn}
-                    src="/img/btn-remove.svg"
-                    alt="Remove"
-                  />
-                </div>
+              {cart.map((item) => (
+                <li key={item.Name}>
+                  {item.Name} - {item.quantity} x €{item.Preis.toFixed(2)}
+                </li>
               ))}
             </div>
 
@@ -42,7 +34,7 @@ function Drawer({ onClose, items = [] }) {
                 <li>
                   <span>Gesamtpreis:</span>
                   <div></div>
-                  <b>100,00 EUR</b>
+                  <b>{total} EUR</b>
                 </li>
                 <li>
                   <span>inkl. MwSt.:</span>
@@ -76,4 +68,4 @@ function Drawer({ onClose, items = [] }) {
   );
 }
 
-export default Drawer;
+export default Cart;

@@ -1,6 +1,7 @@
+import React from 'react';
 import styles from './Salate.module.scss';
 
-function Salate() {
+function Salate({ items, addToCart }) {
   return (
     <div className={styles.salate}>
       <div className={styles.salateText}>
@@ -14,9 +15,16 @@ function Salate() {
           est
         </p>
         <div className={styles.configurator}>
-          <div className={styles.auswaehl}>Auswähl:</div>
+          <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.salat}>
-            <div className={styles.salatName}>Ceasar Salat:</div>
+            <ul>
+              {items.map((item) => (
+                <li key={item.Name}>
+                  {item.Name} - {item.Preis.toFixed(2)} EUR
+                  <button onClick={() => addToCart(item)}>Hinzufügen</button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

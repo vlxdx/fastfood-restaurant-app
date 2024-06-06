@@ -14,7 +14,7 @@ function Burger() {
           est
         </p>
         <div className={styles.configurator}>
-          <div className={styles.auswaehl}>Auswähl:</div>
+          <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.burger}>
             <div className={styles.burgerName}>Burger:</div>
           </div>

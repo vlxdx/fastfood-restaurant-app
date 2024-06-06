@@ -19,6 +19,18 @@
     font-size: 24px;
   }
 
+  .item {
+    color: #323232;
+
+    &:hover {
+      color: #ffbd2f;
+    }
+
+    &:active {
+      color: #d20000;
+    }
+  }
+
   .foods {
     display: flex;
     flex-wrap: wrap;

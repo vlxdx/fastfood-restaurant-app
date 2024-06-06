@@ -12,6 +12,14 @@
     display: flex;
   }
 
+  .item {
+    color: #fff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .kontakt {
     padding-left: 66px;
   }

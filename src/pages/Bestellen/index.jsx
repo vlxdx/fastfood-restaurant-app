@@ -1,11 +1,5 @@
-import { Route, Routes, Link } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import styles from './Bestellen.module.scss';
-import Getraenke from './Getraenke';
-import Bestellauswahl from './Bestellauswahl';
-import Sandwiches from './Sandwiches';
-import Burger from './Burger';
-import Beilagen from './Beilagen';
-import Salate from './Salate';
 
 function Bestellen() {
   return (
@@ -13,45 +7,61 @@ function Bestellen() {
       <div>
         <div className={styles.menu}>
           <div className={styles.topMenu}>
-            <Link
-              to="getraenke"
-              style={{ color: '#323232', textAlign: 'center' }}
-            >
-              <div>
+            <div className={styles.item}>
+              <NavLink
+                to="getraenke"
+                className={(navData) =>
+                  navData.isActive ? styles.active : styles.item
+                }
+              >
                 <img src="/img/1.jpg" alt="Getränke" />
                 <div>Getränke</div>
-              </div>
-            </Link>
-            <Link
-              to="sandwiches"
-              style={{ color: '#323232', textAlign: 'center' }}
-            >
-              <div>
+              </NavLink>
+            </div>
+            <div className={styles.item}>
+              <NavLink
+                to="sandwiches"
+                className={(navData) =>
+                  navData.isActive ? styles.active : styles.item
+                }
+              >
                 <img src="/img/2.jpg" alt="Sandwiches" />
                 <div>Sandwiches</div>
-              </div>
-            </Link>
-            <Link to="burger" style={{ color: '#323232', textAlign: 'center' }}>
-              <div>
+              </NavLink>
+            </div>
+            <div className={styles.item}>
+              <NavLink
+                to="burger"
+                className={(navData) =>
+                  navData.isActive ? styles.active : styles.item
+                }
+              >
                 <img src="/img/3.jpg" alt="Burger" />
                 <div>Burger</div>
-              </div>
-            </Link>
-            <Link
-              to="beilagen"
-              style={{ color: '#323232', textAlign: 'center' }}
-            >
-              <div>
+              </NavLink>
+            </div>
+            <div className={styles.item}>
+              <NavLink
+                to="beilagen"
+                className={(navData) =>
+                  navData.isActive ? styles.active : styles.item
+                }
+              >
                 <img src="/img/4.jpg" alt="Beilagen" />
                 <div>Beilagen</div>
-              </div>
-            </Link>
-            <Link to="salate" style={{ color: '#323232', textAlign: 'center' }}>
-              <div>
+              </NavLink>
+            </div>
+            <div className={styles.item}>
+              <NavLink
+                to="salate"
+                className={(navData) =>
+                  navData.isActive ? styles.active : styles.item
+                }
+              >
                 <img src="/img/5.jpg" alt="Salate" />
                 <div>Salate</div>
-              </div>
-            </Link>
+              </NavLink>
+            </div>
           </div>
           <div className={styles.centerMenu}>
             <h4>Ipsum Lorem</h4>
@@ -72,15 +82,7 @@ function Bestellen() {
           </div>
         </div>
       </div>
-
-      <Routes>
-        <Route path="/" element={<Bestellauswahl />} />
-        <Route path="getraenke" element={<Getraenke />} />
-        <Route path="sandwiches" element={<Sandwiches />} />
-        <Route path="burger" element={<Burger />} />
-        <Route path="beilagen" element={<Beilagen />} />
-        <Route path="salate" element={<Salate />} />
-      </Routes>
+      <Outlet />
     </div>
   );
 }

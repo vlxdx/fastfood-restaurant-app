@@ -1,0 +1,129 @@
+{
+  "Speisekarte": {
+    "Hinweis": "Preise alle in EUR, inkl. MwSt.",
+    "Bestellung_als_Menü": {
+      "Beschreibung": "Ein Menü ist immer 1 Getränk + 1 Sandwich oder Burger + 1 Beilage.",
+      "Rabatt": "Menü-Preis immer 10% günstiger als einzeln."
+    },
+    "Kategorien": [
+      {
+        "Name": "Getränke",
+        "Artikel": [
+          { "Name": "Cola", "Preis": 1.5 },
+          { "Name": "Cola Zero", "Preis": 1.5 },
+          { "Name": "Fanta", "Preis": 1.5 },
+          { "Name": "Sprite", "Preis": 1.5 },
+          { "Name": "Bier", "Preis": 2.0 },
+          { "Name": "Alkoholfreies Bier", "Preis": 2.0 },
+          { "Name": "Orangensaft", "Preis": 1.8 },
+          { "Name": "Stilles Wasser", "Preis": 1.2 },
+          { "Name": "Wasser mit Kohlensäure", "Preis": 1.2 }
+        ]
+      },
+      {
+        "Name": "Sandwiches",
+        "Basispreis": 9.2,
+        "Optionen": [
+          {
+            "Name": "Länge",
+            "Auswahl": [
+              { "Name": "20cm", "Preis": 0.0 },
+              { "Name": "30cm", "Preis": 2.0 }
+            ]
+          },
+          {
+            "Name": "Brotsorte",
+            "Auswahl": [
+              { "Name": "Sesam", "Preis": 0.0 },
+              { "Name": "Vollkorn", "Preis": 0.0 },
+              { "Name": "Weizen", "Preis": 0.0 }
+            ]
+          },
+          {
+            "Name": "Toppings",
+            "Auswahl": [
+              { "Name": "Cheddar", "Preis": 0.5 },
+              { "Name": "Gouda", "Preis": 0.5 },
+              { "Name": "Tunfisch", "Preis": 1.5 },
+              { "Name": "Paprika", "Preis": 0.5 },
+              { "Name": "Salat", "Preis": 0.0 },
+              { "Name": "Gurken", "Preis": 0.0 },
+              { "Name": "Tomaten", "Preis": 0.5 },
+              { "Name": "Schinken", "Preis": 1.0 },
+              { "Name": "Salami", "Preis": 1.0 },
+              { "Name": "Jalapeños", "Preis": 0.5 }
+            ],
+            "mehrfach_auswahl": true
+          },
+          {
+            "Name": "Dressings",
+            "Auswahl": [
+              { "Name": "Honig", "Preis": 0.5 },
+              { "Name": "Caesar", "Preis": 0.5 },
+              { "Name": "Hauseigene Sandwich-Sauce", "Preis": 0.0 },
+              { "Name": "Hauseigene Spicy-Sauce", "Preis": 0.5 }
+            ],
+            "mehrfach_auswahl": true
+          }
+        ]
+      },
+      {
+        "Name": "Burger",
+        "Basispreis": 10.5,
+        "Optionen": [
+          {
+            "Name": "Buns",
+            "Auswahl": [
+              { "Name": "Klassik Bun", "Preis": 0.0 },
+              { "Name": "Black Bun", "Preis": 0.5 },
+              { "Name": "Sesam Bun", "Preis": 0.0 }
+            ]
+          },
+          {
+            "Name": "Toppings",
+            "Auswahl": [
+              { "Name": "Cheddar", "Preis": 0.5 },
+              { "Name": "Gouda", "Preis": 0.5 },
+              { "Name": "Tunfisch", "Preis": 1.5 },
+              { "Name": "Paprika", "Preis": 0.5 },
+              { "Name": "Salat", "Preis": 0.0 },
+              { "Name": "Gurken", "Preis": 0.0 },
+              { "Name": "Tomaten", "Preis": 0.5 },
+              { "Name": "Jalapeños", "Preis": 0.5 },
+              { "Name": "Plant-Patty", "Preis": 3.5 },
+              { "Name": "Rindfleisch-Patty", "Preis": 2.5 }
+            ],
+            "mehrfach_auswahl": true
+          },
+          {
+            "Name": "Dressings",
+            "Auswahl": [
+              { "Name": "Mayo", "Preis": 0.0 },
+              { "Name": "Ketchup", "Preis": 0.0 },
+              { "Name": "Senf", "Preis": 0.0 },
+              { "Name": "Hauseigene Sandwich-Sauce", "Preis": 0.0 },
+              { "Name": "Hauseigene Spicy-Sauce", "Preis": 0.5 }
+            ],
+            "mehrfach_auswahl": true
+          }
+        ]
+      },
+      {
+        "Name": "Beilagen",
+        "Artikel": [
+          { "Name": "Pommes", "Preis": 2.0 },
+          { "Name": "Reis", "Preis": 1.2 },
+          { "Name": "Beilagen-Salat", "Preis": 3.5 }
+        ]
+      },
+      {
+        "Name": "Salate",
+        "Artikel": [
+          { "Name": "Caesar Salat", "Preis": 7.5 },
+          { "Name": "Italienischer Salat", "Preis": 10.0 },
+          { "Name": "Bauern Salat", "Preis": 8.8 }
+        ]
+      }
+    ]
+  }
+}
