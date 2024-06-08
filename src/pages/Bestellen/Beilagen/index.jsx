@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Beilagen.module.scss';
+import fries from '../../../assets/images/fries.jpg';
 
 function Beilagen({ items, addToCart }) {
   return (
@@ -29,7 +30,7 @@ function Beilagen({ items, addToCart }) {
         </div>
       </div>
       <div className={styles.beilageImg}>
-        <img src="/img/fries.jpg" alt="Fries" width={400} />
+        <img src={fries} alt="Fries" width={400} />
       </div>
     </div>
   );

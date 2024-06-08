@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Salate.module.scss';
+import salad from '../../../assets/images/salad.jpg';
 
 function Salate({ items, addToCart }) {
   return (
@@ -29,7 +30,7 @@ function Salate({ items, addToCart }) {
         </div>
       </div>
       <div className={styles.salatImg}>
-        <img src="/img/salad.jpg" alt="Salat" width={400} />
+        <img src={salad} alt="Salat" width={400} />
       </div>
     </div>
   );

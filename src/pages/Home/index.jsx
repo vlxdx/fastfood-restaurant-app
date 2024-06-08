@@ -1,51 +1,83 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Card from '../../components/Card';
 import styles from './Home.module.scss';
+import sandwich from '../../assets/images/sandwiches.png';
+import burger from '../../assets/images/burger.png';
+import beilage from '../../assets/images/beilagen.png';
+import salat from '../../assets/images/salate.png';
+import getraenk from '../../assets/images/getraenke.png';
 
 function Home() {
-  const [homeItems, setHomeItems] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get('https://6659e945de346625136e669b.mockapi.io/items')
-      .then((res) => {
-        setHomeItems(res.data);
-      });
-  }, []);
-
   return (
     <div className={styles.content}>
       <h1>UNSER MENÜ</h1>
-      <div className={styles.menu}>
-        <Link to="/bestellen/sandwiches">
-          <div className={styles.item}>Sandwiches</div>
-        </Link>
-        <Link to="/bestellen/burger">
-          <div className={styles.item}>Burger</div>
-        </Link>
-        <Link to="/bestellen/beilagen">
-          <div className={styles.item}>Beilagen</div>
-        </Link>
-        <Link to="/bestellen/salate">
-          <div className={styles.item}>Salate</div>
-        </Link>
-        <Link to="/bestellen/getraenke">
-          <div className={styles.item}>Getränke</div>
-        </Link>
-      </div>
 
       <div className={styles.foods}>
-        {homeItems.map((homeItem, titel) => (
-          <Card
-            key={titel}
-            titel={homeItem.titel}
-            info={homeItem.info}
-            preis={homeItem.preis}
-            imageUrl={homeItem.imageUrl}
-          />
-        ))}
+        <div className={styles.card}>
+          <img width={160} height={160} src={sandwich} alt="Sandwich" />
+          <p className={styles.titel}>Gute Sandwiches</p>
+          <div>
+            <div>
+              <p className={styles.info}>Mit verschiedenen Toppings</p>
+              <b>Ab 9,20 EUR</b>
+              <Link to="/bestellen/sandwiches">
+                <button>Auswählen</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.card}>
+          <img width={160} height={160} src={burger} alt="Burger" />
+          <p className={styles.titel}>Saftige Burger</p>
+          <div>
+            <div>
+              <p className={styles.info}>Eine Vielzahl saftiger Burger</p>
+              <b>Ab 10,50 EUR</b>
+              <Link to="/bestellen/burger">
+                <button>Auswählen</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.card}>
+          <img width={160} height={160} src={beilage} alt="Beilage" />
+          <p className={styles.titel}>Leckere Beilagen</p>
+          <div>
+            <div>
+              <p className={styles.info}>Knusprige Pommes, Reis und mehr</p>
+              <b>Ab 1,20 EUR</b>
+              <Link to="/bestellen/beilagen">
+                <button>Auswählen</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.card}>
+          <img width={160} height={160} src={salat} alt="Salat" />
+          <p className={styles.titel}>Gesunde Salate</p>
+          <div>
+            <div>
+              <p className={styles.info}>Mit einer leckeren Salatmischung</p>
+              <b>Ab 7,50 EUR</b>
+              <Link to="/bestellen/salate">
+                <button>Auswählen</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.card}>
+          <img width={160} height={160} src={getraenk} alt="Getränk" />
+          <p className={styles.titel}>Kühle Getränke</p>
+          <div>
+            <div>
+              <p className={styles.info}>Cola, Fanta, Sprite 0,5l Einweg</p>
+              <b>Ab 1,20 EUR</b>
+              <Link to="/bestellen/getraenke">
+                <button>Auswählen</button>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

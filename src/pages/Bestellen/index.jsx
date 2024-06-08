@@ -1,5 +1,10 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import styles from './Bestellen.module.scss';
+import getraenke from '../../assets/images/1.jpg';
+import sandwiches from '../../assets/images/2.jpg';
+import burger from '../../assets/images/3.jpg';
+import beilagen from '../../assets/images/4.jpg';
+import salate from '../../assets/images/5.jpg';
 
 function Bestellen() {
   return (
@@ -14,7 +19,7 @@ function Bestellen() {
                   navData.isActive ? styles.active : styles.item
                 }
               >
-                <img src="/img/1.jpg" alt="Getränke" />
+                <img src={getraenke} alt="Getränke" />
                 <div>Getränke</div>
               </NavLink>
             </div>
@@ -25,7 +30,7 @@ function Bestellen() {
                   navData.isActive ? styles.active : styles.item
                 }
               >
-                <img src="/img/2.jpg" alt="Sandwiches" />
+                <img src={sandwiches} alt="Sandwiches" />
                 <div>Sandwiches</div>
               </NavLink>
             </div>
@@ -36,7 +41,7 @@ function Bestellen() {
                   navData.isActive ? styles.active : styles.item
                 }
               >
-                <img src="/img/3.jpg" alt="Burger" />
+                <img src={burger} alt="Burger" />
                 <div>Burger</div>
               </NavLink>
             </div>
@@ -47,7 +52,7 @@ function Bestellen() {
                   navData.isActive ? styles.active : styles.item
                 }
               >
-                <img src="/img/4.jpg" alt="Beilagen" />
+                <img src={beilagen} alt="Beilagen" />
                 <div>Beilagen</div>
               </NavLink>
             </div>
@@ -58,7 +63,7 @@ function Bestellen() {
                   navData.isActive ? styles.active : styles.item
                 }
               >
-                <img src="/img/5.jpg" alt="Salate" />
+                <img src={salate} alt="Salate" />
                 <div>Salate</div>
               </NavLink>
             </div>

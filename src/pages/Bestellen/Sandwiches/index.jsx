@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Sandwiches.module.scss';
+import sandwich from '../../../assets/images/sandwich.jpg';
 
 function Sandwiches({ items, addToCart }) {
   const [selectedBread, setSelectedBread] = useState('');
@@ -93,7 +94,7 @@ function Sandwiches({ items, addToCart }) {
         </div>
       </div>
       <div className={styles.sandwichImg}>
-        <img src="/img/sandwich.jpg" alt="Sandwich" width={400} />
+        <img src={sandwich} alt="Sandwich" width={400} />
       </div>
     </div>
   );

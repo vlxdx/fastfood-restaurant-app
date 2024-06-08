@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Getraenke.module.scss';
+import cola from '../../../assets/images/cola.jpg';
 
 function Getraenke({ items, addToCart }) {
   return (
@@ -29,7 +30,7 @@ function Getraenke({ items, addToCart }) {
         </div>
       </div>
       <div className={styles.getraenkeImg}>
-        <img src="/img/cola.jpg" alt="Cola" width={400} />
+        <img src={cola} alt="Cola" width={400} />
       </div>
     </div>
   );

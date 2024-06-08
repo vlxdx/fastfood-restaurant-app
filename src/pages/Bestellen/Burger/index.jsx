@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Burger.module.scss';
+import burger from '../../../assets/images/burger.jpg';
 
 function Burger({ items, addToCart }) {
   const [selectedBun, setSelectedBun] = useState('');
@@ -99,7 +100,7 @@ function Burger({ items, addToCart }) {
         </div>
       </div>
       <div className={styles.burgerImg}>
-        <img src="/img/burger.jpg" alt="Burger" width={400} />
+        <img src={burger} alt="Burger" width={400} />
       </div>
     </div>
   );

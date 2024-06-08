@@ -1,5 +1,8 @@
 import React from 'react';
 import styles from './Cart.module.scss';
+import btnRemove from '../../assets/images/btn-remove.svg';
+import emptyCart from '../../assets/images/empty-cart.png';
+import arrow from '../../assets/images/arrow.svg';
 
 function Cart({ cart, removeFromCart, onClose }) {
   const total = cart
@@ -16,7 +19,7 @@ function Cart({ cart, removeFromCart, onClose }) {
           <img
             onClick={onClose}
             className={styles.removeBtn}
-            src="/img/btn-remove.svg"
+            src={btnRemove}
             alt="Entfernen"
           />
         </h2>
@@ -32,7 +35,7 @@ function Cart({ cart, removeFromCart, onClose }) {
                   <img
                     onClick={() => removeFromCart(item)}
                     className={styles.removeBtn}
-                    src="/img/btn-remove.svg"
+                    src={btnRemove}
                     alt="Löschen"
                   />
                 </div>
@@ -52,22 +55,17 @@ function Cart({ cart, removeFromCart, onClose }) {
                 </li>
               </ul>
               <button className={styles.orangeButton}>
-                Weiter zur Kasse <img src="/img/arrow.svg" alt="Arrow" />
+                Weiter zur Kasse <img src={arrow} alt="Arrow" />
               </button>
             </div>
           </div>
         ) : (
           <div className={styles.cartEmpty}>
-            <img
-              width="120px"
-              height="120px"
-              src="/img/empty-cart.png"
-              alt="Empty"
-            />
+            <img width="120px" height="120px" src={emptyCart} alt="Empty" />
             <h2>Ihr Warenkorb ist leer</h2>
             <p>Weiter einkaufen</p>
             <button onClick={onClose} className={styles.orangeButton}>
-              <img src="/img/arrow.svg" alt="Arrow" />
+              <img src={arrow} alt="Arrow" />
               Zurück
             </button>
           </div>
