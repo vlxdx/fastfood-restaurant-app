@@ -68,7 +68,7 @@
           {
             "Name": "Sandwich",
             "Preis": 9.2,
-            "Länge": [
+            "Laenge": [
               {
                 "Name": "20cm",
                 "Preis": 0.0,

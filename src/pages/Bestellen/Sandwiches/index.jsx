@@ -3,6 +3,7 @@ import styles from './Sandwiches.module.scss';
 import sandwich from '../../../assets/images/sandwich.jpg';
 
 function Sandwiches({ items, addToCart }) {
+  const [selectedLength, setSelectedLength] = useState('');
   const [selectedBread, setSelectedBread] = useState('');
   const [selectedToppings, setSelectedToppings] = useState([]);
   const [selectedDressings, setSelectedDressings] = useState([]);
@@ -25,6 +26,7 @@ function Sandwiches({ items, addToCart }) {
     const itemWithOptions = {
       ...item,
       options: {
+        length: selectedLength,
         bread: selectedBread,
         toppings: selectedToppings,
         dressings: selectedDressings,
@@ -55,6 +57,26 @@ function Sandwiches({ items, addToCart }) {
                   <span className={styles.sandwichPreis}>
                     - {item.Preis.toFixed(2)} EUR
                   </span>
+                </div>
+                <div>
+                  <label>Länge:</label>
+                  {item.Laenge.map((length) => (
+                    <div key={length.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="radio"
+                          name="length"
+                          value={length.Name}
+                          onChange={(e) => setSelectedLength(e.target.value)}
+                        />
+                        <span className={styles.name}>{length.Name}</span>,{' '}
+                        {length.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {length.Preis.toFixed(2)} EUR
+                      </div>
+                    </div>
+                  ))}
                 </div>
                 <div>
                   <label>Brotart:</label>
