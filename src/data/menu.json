@@ -4,14 +4,62 @@
       {
         "Name": "Getränke",
         "Artikel": [
-          { "Name": "Cola", "Preis": 1.5 },
-          { "Name": "Fanta", "Preis": 1.5 },
-          { "Name": "Sprite", "Preis": 1.5 },
-          { "Name": "Bier", "Preis": 2.0 },
-          { "Name": "alkoholfreies Bier", "Preis": 2.0 },
-          { "Name": "Orangensaft", "Preis": 1.8 },
-          { "Name": "Stilles Wasser", "Preis": 1.2 },
-          { "Name": "Wasser mit Kohlensäure", "Preis": 1.2 }
+          {
+            "Name": "Cola",
+            "Preis": 1.5,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Fanta",
+            "Preis": 1.5,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Sprite",
+            "Preis": 1.5,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Bier",
+            "Preis": 2.0,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "alkoholfreies Bier",
+            "Preis": 2.0,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Orangensaft",
+            "Preis": 1.8,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Stilles Wasser",
+            "Preis": 1.2,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
+            "Name": "Wasser mit Kohlensäure",
+            "Preis": 1.2,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          }
         ]
       },
       {
@@ -20,24 +68,146 @@
           {
             "Name": "Sandwich",
             "Preis": 9.2,
-            "Brotart": ["Sesam", "Vollkorn", "Weizen"],
+            "Länge": [
+              {
+                "Name": "20cm",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 155,
+                "Typ": "Länge"
+              },
+              {
+                "Name": "30cm",
+                "Preis": 2.0,
+                "Waehrung": "EUR",
+                "Kcal": 155,
+                "Typ": "Länge"
+              }
+            ],
+            "Brotart": [
+              {
+                "Name": "Sesam",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 155,
+                "Typ": "Brotart"
+              },
+              {
+                "Name": "Vollkorn",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 155,
+                "Typ": "Brotart"
+              },
+              {
+                "Name": "Weizen",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 155,
+                "Typ": "Brotart"
+              }
+            ],
             "Toppings": [
-              { "Name": "Cheddar", "Preis": 0.5 },
-              { "Name": "Gouda", "Preis": 0.5 },
-              { "Name": "Thunfisch", "Preis": 1.5 },
-              { "Name": "Paprika", "Preis": 0.5 },
-              { "Name": "Salat", "Preis": 0.5 },
-              { "Name": "Gurken", "Preis": 0.5 },
-              { "Name": "Tomaten", "Preis": 0.5 },
-              { "Name": "Schinken", "Preis": 1.0 },
-              { "Name": "Salami", "Preis": 1.0 },
-              { "Name": "Jalapenos", "Preis": 0.5 }
+              {
+                "Name": "Cheddar",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Gouda",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Thunfisch",
+                "Preis": 1.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Paprika",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Salat",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Gurken",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Tomaten",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Schinken",
+                "Preis": 1.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Salami",
+                "Preis": 1.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Jalapenos",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              }
             ],
             "Dressings": [
-              "Honig",
-              "Caesar",
-              "haus eigene Sandwich-Sauce",
-              "haus eigene Spicy-Sauce"
+              {
+                "Name": "Honig",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Caesar",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Hauseigene Sandwich-Sauce",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Hauseigene Spicy-Sauce",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              }
             ]
           }
         ]
@@ -48,25 +218,137 @@
           {
             "Name": "Burger",
             "Preis": 10.5,
-            "Buns": ["Klassik Bun", "Black Bun", "Sesam Bun"],
+            "Buns": [
+              {
+                "Name": "Klassik Bun",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 225,
+                "Typ": "Bun"
+              },
+              {
+                "Name": "Black Bun",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 225,
+                "Typ": "Bun"
+              },
+              {
+                "Name": "Sesam Bun",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 225,
+                "Typ": "Bun"
+              }
+            ],
             "Toppings": [
-              { "Name": "Cheddar", "Preis": 0.5 },
-              { "Name": "Gouda", "Preis": 0.5 },
-              { "Name": "Thunfisch", "Preis": 1.5 },
-              { "Name": "Paprika", "Preis": 0.5 },
-              { "Name": "Salat", "Preis": 0.5 },
-              { "Name": "Gurken", "Preis": 0.5 },
-              { "Name": "Tomaten", "Preis": 0.5 },
-              { "Name": "Jalapenos", "Preis": 0.5 },
-              { "Name": "Plant-Patty", "Preis": 3.5 },
-              { "Name": "Rindfleisch-Patty", "Preis": 2.5 }
+              {
+                "Name": "Cheddar",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Gouda",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Toppings"
+              },
+              {
+                "Name": "Thunfisch",
+                "Preis": 1.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Paprika",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Salat",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Gurken",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Tomaten",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Jalapenos",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Plant-Patty",
+                "Preis": 3.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              },
+              {
+                "Name": "Rindfleisch-Patty",
+                "Preis": 2.5,
+                "Waehrung": "EUR",
+                "Kcal": 15,
+                "Typ": "Topping"
+              }
             ],
             "Dressings": [
-              "Mayo",
-              "Ketchup",
-              "Senf",
-              "haus eigene Sandwich-Sauce",
-              "haus eigene Spicy-Sauce"
+              {
+                "Name": "Mayo",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Ketchup",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Senf",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Hauseigene Sandwich-Sauce",
+                "Preis": 0.0,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              },
+              {
+                "Name": "Hauseigene Spicy-Sauce",
+                "Preis": 0.5,
+                "Waehrung": "EUR",
+                "Kcal": 25,
+                "Typ": "Dressing"
+              }
             ]
           }
         ]
@@ -74,17 +356,53 @@
       {
         "Name": "Beilagen",
         "Artikel": [
-          { "Name": "Pommes", "Preis": 2.0 },
-          { "Name": "Reis", "Preis": 1.2 },
-          { "Name": "Beilagen-Salat", "Preis": 3.5 }
+          {
+            "Name": "Pommes",
+            "Preis": 2.0,
+            "Waehrung": "EUR",
+            "Kcal": 115,
+            "Typ": "Beilage"
+          },
+          {
+            "Name": "Reis",
+            "Preis": 1.2,
+            "Waehrung": "EUR",
+            "Kcal": 115,
+            "Typ": "Beilage"
+          },
+          {
+            "Name": "Beilagen-Salat",
+            "Preis": 3.5,
+            "Waehrung": "EUR",
+            "Kcal": 115,
+            "Typ": "Beilage"
+          }
         ]
       },
       {
         "Name": "Salate",
         "Artikel": [
-          { "Name": "Caesar Salat", "Preis": 7.5 },
-          { "Name": "Italienischer Salat", "Preis": 10.0 },
-          { "Name": "Bauern Salat", "Preis": 8.8 }
+          {
+            "Name": "Caesar Salat",
+            "Preis": 7.5,
+            "Waehrung": "EUR",
+            "Kcal": 105,
+            "Typ": "Salat"
+          },
+          {
+            "Name": "Italienischer Salat",
+            "Preis": 10.0,
+            "Waehrung": "EUR",
+            "Kcal": 105,
+            "Typ": "Salat"
+          },
+          {
+            "Name": "Bauern Salat",
+            "Preis": 8.8,
+            "Waehrung": "EUR",
+            "Kcal": 105,
+            "Typ": "Salat"
+          }
         ]
       }
     ]

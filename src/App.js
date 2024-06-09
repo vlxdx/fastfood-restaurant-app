@@ -14,6 +14,7 @@ import Beilagen from './pages/Bestellen/Beilagen';
 import Salate from './pages/Bestellen/Salate';
 import menuData from './data/menu.json';
 import AppContext from './context';
+import Notfoundpage from './pages/Notfoundpage/Notfoundpage';
 
 function App() {
   const [cartOpened, setCartOpened] = useState(false);
@@ -119,6 +120,8 @@ function App() {
           </Route>
 
           <Route path="/impressum" element={<Impressum />} />
+
+          <Route path="*" element={<Notfoundpage />} />
         </Routes>
         <Footer />
       </div>

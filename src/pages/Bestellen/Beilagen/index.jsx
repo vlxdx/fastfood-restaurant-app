@@ -21,7 +21,13 @@ function Beilagen({ items, addToCart }) {
             <ul>
               {items.map((item) => (
                 <li key={item.Name}>
-                  {item.Name} - {item.Preis.toFixed(2)} EUR
+                  <div>
+                    <div className={styles.name}>{item.Name}</div>
+                    <div>{item.Kcal} Kcal</div>
+                  </div>
+                  <div className={styles.preis}>
+                    {item.Preis.toFixed(2)} EUR
+                  </div>
                   <button onClick={() => addToCart(item)}>Hinzufügen</button>
                 </li>
               ))}
@@ -29,7 +35,7 @@ function Beilagen({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div className={styles.beilageImg}>
+      <div>
         <img src={fries} alt="Fries" width={400} />
       </div>
     </div>

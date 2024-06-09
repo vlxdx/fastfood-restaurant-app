@@ -5,12 +5,19 @@ import sandwich from '../../../assets/images/sandwich.jpg';
 function Sandwiches({ items, addToCart }) {
   const [selectedBread, setSelectedBread] = useState('');
   const [selectedToppings, setSelectedToppings] = useState([]);
-  const [selectedDressing, setSelectedDressing] = useState('');
+  const [selectedDressings, setSelectedDressings] = useState([]);
 
   const handleToppingChange = (e) => {
     const { value, checked } = e.target;
     setSelectedToppings((prev) =>
       checked ? [...prev, value] : prev.filter((topping) => topping !== value)
+    );
+  };
+
+  const handleDressingChange = (e) => {
+    const { value, checked } = e.target;
+    setSelectedDressings((prev) =>
+      checked ? [...prev, value] : prev.filter((dressing) => dressing !== value)
     );
   };
 
@@ -20,7 +27,7 @@ function Sandwiches({ items, addToCart }) {
       options: {
         bread: selectedBread,
         toppings: selectedToppings,
-        dressing: selectedDressing,
+        dressings: selectedDressings,
       },
     };
     addToCart(itemWithOptions);
@@ -43,45 +50,67 @@ function Sandwiches({ items, addToCart }) {
           <div className={styles.sandwich}>
             {items.map((item) => (
               <div key={item.Name}>
-                <h2>{item.Name}</h2>
+                <div className={styles.sandwichHeader}>
+                  {item.Name}
+                  <span className={styles.sandwichPreis}>
+                    - {item.Preis.toFixed(2)} EUR
+                  </span>
+                </div>
                 <div>
                   <label>Brotart:</label>
                   {item.Brotart.map((bread) => (
-                    <div key={bread}>
-                      <input
-                        type="radio"
-                        name="bread"
-                        value={bread}
-                        onChange={(e) => setSelectedBread(e.target.value)}
-                      />
-                      {bread}
+                    <div key={bread.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="radio"
+                          name="bread"
+                          value={bread.Name}
+                          onChange={(e) => setSelectedBread(e.target.value)}
+                        />
+                        <span className={styles.name}>{bread.Name}</span>,{' '}
+                        {bread.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {bread.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
                 <div>
                   <label>Toppings:</label>
                   {item.Toppings.map((topping) => (
-                    <div key={topping.Name}>
-                      <input
-                        type="checkbox"
-                        value={topping.Name}
-                        onChange={handleToppingChange}
-                      />
-                      {topping.Name} (+€{topping.Preis.toFixed(2)})
+                    <div key={topping.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="checkbox"
+                          value={topping.Name}
+                          onChange={handleToppingChange}
+                        />
+                        <span className={styles.name}>{topping.Name}</span>,{' '}
+                        {topping.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {topping.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
                 <div>
                   <label>Dressings:</label>
                   {item.Dressings.map((dressing) => (
-                    <div key={dressing}>
-                      <input
-                        type="radio"
-                        name="dressing"
-                        value={dressing}
-                        onChange={(e) => setSelectedDressing(e.target.value)}
-                      />
-                      {dressing}
+                    <div key={dressing.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="checkbox"
+                          value={dressing.Name}
+                          onChange={handleDressingChange}
+                        />
+                        <span className={styles.name}>{dressing.Name}</span>,{' '}
+                        {dressing.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {dressing.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -93,7 +122,7 @@ function Sandwiches({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div className={styles.sandwichImg}>
+      <div>
         <img src={sandwich} alt="Sandwich" width={400} />
       </div>
     </div>

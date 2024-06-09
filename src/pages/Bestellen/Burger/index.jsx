@@ -50,44 +50,67 @@ function Burger({ items, addToCart }) {
           <div className={styles.burger}>
             {items.map((item) => (
               <div key={item.Name}>
-                <h2>{item.Name}</h2>
+                <div className={styles.burgerHeader}>
+                  {item.Name}
+                  <span className={styles.burgerPreis}>
+                    - {item.Preis.toFixed(2)} EUR
+                  </span>
+                </div>
                 <div>
                   <label>Buns:</label>
                   {item.Buns.map((bun) => (
-                    <div key={bun}>
-                      <input
-                        type="radio"
-                        name="bun"
-                        value={bun}
-                        onChange={(e) => setSelectedBun(e.target.value)}
-                      />
-                      {bun}
+                    <div key={bun.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="radio"
+                          name="bun"
+                          value={bun.Name}
+                          onChange={(e) => setSelectedBun(e.target.value)}
+                        />
+                        <span className={styles.name}>{bun.Name}</span>,{' '}
+                        {bun.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {bun.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
                 <div>
                   <label>Toppings:</label>
                   {item.Toppings.map((topping) => (
-                    <div key={topping.Name}>
-                      <input
-                        type="checkbox"
-                        value={topping.Name}
-                        onChange={handleToppingChange}
-                      />
-                      {topping.Name} (+€{topping.Preis.toFixed(2)})
+                    <div key={topping.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="checkbox"
+                          value={topping.Name}
+                          onChange={handleToppingChange}
+                        />
+                        <span className={styles.name}>{topping.Name}</span>,{' '}
+                        {topping.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {topping.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
                 <div>
                   <label>Dressings:</label>
                   {item.Dressings.map((dressing) => (
-                    <div key={dressing}>
-                      <input
-                        type="checkbox"
-                        value={dressing}
-                        onChange={handleDressingChange}
-                      />
-                      {dressing}
+                    <div key={dressing.Name} className={styles.option}>
+                      <div>
+                        <input
+                          type="checkbox"
+                          value={dressing.Name}
+                          onChange={handleDressingChange}
+                        />
+                        <span className={styles.name}>{dressing.Name}</span>,{' '}
+                        {dressing.Kcal} Kcal
+                      </div>
+                      <div className={styles.preis}>
+                        + {dressing.Preis.toFixed(2)} EUR
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -99,7 +122,7 @@ function Burger({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div className={styles.burgerImg}>
+      <div>
         <img src={burger} alt="Burger" width={400} />
       </div>
     </div>
