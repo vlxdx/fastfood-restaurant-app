@@ -54,7 +54,13 @@
     font-weight: 700;
   }
 
+  .info {
+    display: flex;
+    align-items: center;
+  }
+
   .preis {
+    padding-right: 30px;
     font-weight: 500;
     font-style: italic;
   }

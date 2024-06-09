@@ -25,10 +25,12 @@ function Salate({ items, addToCart }) {
                     <div className={styles.name}>{item.Name}</div>
                     <div>{item.Kcal} Kcal</div>
                   </div>
-                  <div className={styles.preis}>
-                    {item.Preis.toFixed(2)} EUR
+                  <div className={styles.info}>
+                    <div className={styles.preis}>
+                      {item.Preis.toFixed(2)} EUR
+                    </div>
+                    <button onClick={() => addToCart(item)}>Hinzufügen</button>
                   </div>
-                  <button onClick={() => addToCart(item)}>Hinzufügen</button>
                 </li>
               ))}
             </ul>

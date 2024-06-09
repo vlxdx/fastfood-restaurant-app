@@ -12,6 +12,13 @@
             "Typ": "Getränk"
           },
           {
+            "Name": "Cola Zero",
+            "Preis": 1.5,
+            "Waehrung": "EUR",
+            "Kcal": 95,
+            "Typ": "Getränk"
+          },
+          {
             "Name": "Fanta",
             "Preis": 1.5,
             "Waehrung": "EUR",
