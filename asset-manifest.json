@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fastfood-restaurant-app/static/css/main.040a8cb4.css",
-    "main.js": "/fastfood-restaurant-app/static/js/main.160c5789.js",
+    "main.js": "/fastfood-restaurant-app/static/js/main.0e0b8926.js",
     "static/media/burger.jpg": "/fastfood-restaurant-app/static/media/burger.0397efdb889de134e1e2.jpg",
     "static/media/sandwich.jpg": "/fastfood-restaurant-app/static/media/sandwich.6c7f139875c64ca290ef.jpg",
     "static/media/fries.jpg": "/fastfood-restaurant-app/static/media/fries.61de6c661ce4a4702f99.jpg",
@@ -20,10 +20,10 @@
     "static/media/btn-remove.svg": "/fastfood-restaurant-app/static/media/btn-remove.b1fef0aa93fbf25374f4991d23f900d8.svg",
     "static/media/arrow.svg": "/fastfood-restaurant-app/static/media/arrow.fc3222511ec5a224a4abf3bbf4c2566f.svg",
     "main.040a8cb4.css.map": "/fastfood-restaurant-app/static/css/main.040a8cb4.css.map",
-    "main.160c5789.js.map": "/fastfood-restaurant-app/static/js/main.160c5789.js.map"
+    "main.0e0b8926.js.map": "/fastfood-restaurant-app/static/js/main.0e0b8926.js.map"
   },
   "entrypoints": [
     "static/css/main.040a8cb4.css",
-    "static/js/main.160c5789.js"
+    "static/js/main.0e0b8926.js"
   ]
 }
