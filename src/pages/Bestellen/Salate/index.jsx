@@ -37,8 +37,8 @@ function Salate({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div>
-        <img src={salad} alt="Salat" width={400} />
+      <div className={styles.salateImg}>
+        <img src={salad} alt="Salat" width={300} />
       </div>
     </div>
   );

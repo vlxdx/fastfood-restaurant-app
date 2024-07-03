@@ -1,13 +1,12 @@
 .salate {
   color: #323232;
-  display: flex;
-  margin: 120px;
-  margin-left: 77px;
-  margin-right: 0;
+  display: grid;
+  margin: 120px 0;
 
   .salateText {
-    display: flex;
-    flex-direction: column;
+    grid-column: 1 / 2;
+    margin-left: 10px;
+    margin-right: 70px;
 
     h2 {
       font-weight: 800;
@@ -91,3 +90,21 @@
     }
   }
 }
+
+.salateImg {
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 1024px) {
+  .salateImg {
+    display: none;
+  }
+}
+
+// .image {
+//   background-image: url(/assets/images/salad.jpg);
+//   background-size: 300px;
+//   background-repeat: no-repeat;
+//   background-position: right;
+//   min-width: 300px;
+// }

@@ -1,13 +1,12 @@
 .sandwiches {
   color: #323232;
   display: flex;
-  margin: 120px;
-  margin-left: 77px;
-  margin-right: 0;
+  margin: 120px 0;
 
   .sandwichesText {
-    display: flex;
-    flex-direction: column;
+    grid-column: 1 / 2;
+    margin-left: 10px;
+    margin-right: 70px;
 
     h2 {
       font-weight: 800;
@@ -110,5 +109,15 @@
 
   input {
     margin-bottom: 10px;
+  }
+}
+
+.sandwichesImg {
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 1024px) {
+  .sandwichesImg {
+    display: none;
   }
 }

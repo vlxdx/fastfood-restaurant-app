@@ -37,8 +37,8 @@ function Beilagen({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div>
-        <img src={fries} alt="Fries" width={400} />
+      <div className={styles.beilagenImg}>
+        <img src={fries} alt="Fries" width={300} />
       </div>
     </div>
   );

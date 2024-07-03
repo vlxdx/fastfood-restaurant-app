@@ -37,8 +37,8 @@ function Getraenke({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div>
-        <img src={cola} alt="Cola" width={400} />
+      <div className={styles.getraenkeImg}>
+        <img src={cola} alt="Cola" width={300} />
       </div>
     </div>
   );

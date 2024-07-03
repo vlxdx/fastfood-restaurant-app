@@ -1,13 +1,12 @@
 .beilagen {
   color: #323232;
-  display: flex;
-  margin: 120px;
-  margin-left: 77px;
-  margin-right: 0;
+  display: grid;
+  margin: 120px 0;
 
   .beilagenText {
-    display: flex;
-    flex-direction: column;
+    grid-column: 1 / 2;
+    margin-left: 10px;
+    margin-right: 70px;
 
     h2 {
       font-weight: 800;
@@ -89,5 +88,15 @@
     &:active {
       background: darken(#d20000, 5%);
     }
+  }
+}
+
+.beilagenImg {
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 1024px) {
+  .beilagenImg {
+    display: none;
   }
 }

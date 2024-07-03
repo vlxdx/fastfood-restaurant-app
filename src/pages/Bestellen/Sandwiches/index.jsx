@@ -144,8 +144,8 @@ function Sandwiches({ items, addToCart }) {
           </div>
         </div>
       </div>
-      <div>
-        <img src={sandwich} alt="Sandwich" width={400} />
+      <div className={styles.sandwichesImg}>
+        <img src={sandwich} alt="Sandwich" width={300} />
       </div>
     </div>
   );

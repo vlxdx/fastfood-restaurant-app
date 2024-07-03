@@ -40,3 +40,9 @@ header {
     color: #d20000;
   }
 }
+
+@media (max-width: 768px) {
+  .myOrder {
+    display: none;
+  }
+}
