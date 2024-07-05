@@ -5,8 +5,15 @@ import emptyCart from '../../assets/images/empty-cart.png';
 import arrow from '../../assets/images/arrow.svg';
 import btnPlus from '../../assets/images/btn-plus.svg';
 import btnMinus from '../../assets/images/btn-minus.svg';
+import btnDelete from '../../assets/images/btn-delete.svg';
 
-function Cart({ cart, removeFromCart, onClose, addToCart }) {
+function Cart({
+  cart,
+  onClose,
+  addToCart,
+  removeUnitFromCart,
+  removeFromCart,
+}) {
   const total = cart
     .reduce((sum, item) => sum + item.quantity * item.Preis, 0)
     .toFixed(2);
@@ -37,24 +44,38 @@ function Cart({ cart, removeFromCart, onClose, addToCart }) {
                     <i>Einzelpreis: {item.Preis.toFixed(2)} EUR</i>
                   </div>
                   <div className={styles.quantityPrice}>
-                    <div className={styles.quantitySelector}>
+                    <div>
                       <img
                         onClick={() => removeFromCart(item)}
                         className={styles.removeBtn}
                         width={24}
-                        src={btnMinus}
-                        alt="Minus"
-                      />
-                      <span>{item.quantity}</span>
-                      <img
-                        onClick={() => addToCart(item)}
-                        className={styles.removeBtn}
-                        width={24}
-                        src={btnPlus}
-                        alt="Plus"
+                        src={btnDelete}
+                        alt="Delete"
                       />
                     </div>
-                    <b>{(item.quantity * item.Preis).toFixed(2)} EUR</b>
+                    <div>
+                      <div className={styles.quantitySelector}>
+                        <img
+                          onClick={() => removeUnitFromCart(item)}
+                          className={styles.removeBtn}
+                          width={24}
+                          src={btnMinus}
+                          alt="Minus"
+                        />
+                        <span>{item.quantity}</span>
+                        <img
+                          onClick={() => addToCart(item)}
+                          className={styles.removeBtn}
+                          width={24}
+                          src={btnPlus}
+                          alt="Plus"
+                        />
+                      </div>
+                    </div>
+                    <b>
+                      <div>{(item.quantity * item.Preis).toFixed(2)}</div>
+                      <div>EUR</div>
+                    </b>
                   </div>
                 </div>
               ))}

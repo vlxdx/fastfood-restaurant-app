@@ -20,7 +20,7 @@ function Header(props) {
       </div>
       <div onClick={props.onClickCart} className={styles.headerRight}>
         <img width={45} height={38} src={cart} alt="Cart" />
-        <div>
+        <div style={{ width: '181px' }}>
           TOTAL: <span>{total} EUR</span>
         </div>
       </div>

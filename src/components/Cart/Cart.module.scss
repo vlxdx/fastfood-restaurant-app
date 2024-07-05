@@ -64,19 +64,24 @@
   }
 
   .quantitySelector {
+    width: 76px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border: 1px solid #f3f3f3;
     border-radius: 10px;
+    margin-left: 5px;
   }
 
   span {
-    padding: 0 5px;
     font-size: 14px;
   }
 
   b {
-    padding-left: 5px;
+    width: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 14px;
   }
 }

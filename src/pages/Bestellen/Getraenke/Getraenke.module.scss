@@ -89,13 +89,19 @@
       background: darken(#d20000, 5%);
     }
   }
+
+  @media (max-width: 920px) {
+    button {
+      width: 100px;
+    }
+  }
 }
 
 .getraenkeImg {
   grid-column: 2 / 3;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1222px) {
   .getraenkeImg {
     display: none;
   }

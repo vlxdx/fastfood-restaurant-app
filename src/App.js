@@ -38,7 +38,7 @@ function App() {
     });
   };
 
-  const removeFromCart = (item) => {
+  const removeUnitFromCart = (item) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find(
         (cartItem) => cartItem.Name === item.Name
@@ -55,15 +55,22 @@ function App() {
     });
   };
 
+  const removeFromCart = (item) => {
+    setCart((prevCart) => {
+      return prevCart.filter((cartItem) => cartItem.Name !== item.Name);
+    });
+  };
+
   return (
     <AppContext.Provider value={{ cart, addToCart, setCartOpened }}>
       <div className="wrapper">
         {cartOpened && (
           <Cart
             cart={cart}
-            removeFromCart={removeFromCart}
             onClose={() => setCartOpened(false)}
             addToCart={addToCart}
+            removeUnitFromCart={removeUnitFromCart}
+            removeFromCart={removeFromCart}
           />
         )}
         <Header onClickCart={() => setCartOpened(true)} />
