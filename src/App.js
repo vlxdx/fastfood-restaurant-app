@@ -63,6 +63,7 @@ function App() {
             cart={cart}
             removeFromCart={removeFromCart}
             onClose={() => setCartOpened(false)}
+            addToCart={addToCart}
           />
         )}
         <Header onClickCart={() => setCartOpened(true)} />

@@ -3,8 +3,10 @@ import styles from './Cart.module.scss';
 import btnRemove from '../../assets/images/btn-remove.svg';
 import emptyCart from '../../assets/images/empty-cart.png';
 import arrow from '../../assets/images/arrow.svg';
+import btnPlus from '../../assets/images/btn-plus.svg';
+import btnMinus from '../../assets/images/btn-minus.svg';
 
-function Cart({ cart, removeFromCart, onClose }) {
+function Cart({ cart, removeFromCart, onClose, addToCart }) {
   const total = cart
     .reduce((sum, item) => sum + item.quantity * item.Preis, 0)
     .toFixed(2);
@@ -19,6 +21,7 @@ function Cart({ cart, removeFromCart, onClose }) {
           <img
             onClick={onClose}
             className={styles.removeBtn}
+            width={32}
             src={btnRemove}
             alt="Entfernen"
           />
@@ -30,14 +33,29 @@ function Cart({ cart, removeFromCart, onClose }) {
               {cart.map((item) => (
                 <div key={item.Name} className={styles.cartItem}>
                   <div>
-                    {item.Name} - {item.quantity} x {item.Preis.toFixed(2)} EUR
+                    <div>{item.Name}</div>
+                    <i>Einzelpreis: {item.Preis.toFixed(2)} EUR</i>
                   </div>
-                  <img
-                    onClick={() => removeFromCart(item)}
-                    className={styles.removeBtn}
-                    src={btnRemove}
-                    alt="Löschen"
-                  />
+                  <div className={styles.quantityPrice}>
+                    <div className={styles.quantitySelector}>
+                      <img
+                        onClick={() => removeFromCart(item)}
+                        className={styles.removeBtn}
+                        width={24}
+                        src={btnMinus}
+                        alt="Minus"
+                      />
+                      <span>{item.quantity}</span>
+                      <img
+                        onClick={() => addToCart(item)}
+                        className={styles.removeBtn}
+                        width={24}
+                        src={btnPlus}
+                        alt="Plus"
+                      />
+                    </div>
+                    <b>{(item.quantity * item.Preis).toFixed(2)} EUR</b>
+                  </div>
                 </div>
               ))}
             </div>

@@ -27,11 +27,21 @@
     margin-bottom: 30px;
   }
 
-  .items {
-    flex: 1;
-    overflow: auto;
-    margin-bottom: 40px;
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
   }
+}
+
+.items {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 40px;
 
   .cartItem {
     display: flex;
@@ -44,29 +54,30 @@
     padding: 20px;
   }
 
-  .food {
-    margin-right: 20px;
-    flex: 1;
+  i {
+    font-size: 12px;
   }
 
-  p {
-    margin-bottom: 5px;
-    font-size: 16px;
-    margin: 0;
+  .quantityPrice {
+    display: flex;
+    align-items: center;
   }
 
-  b {
+  .quantitySelector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+  }
+
+  span {
+    padding: 0 5px;
     font-size: 14px;
   }
 
-  .removeBtn {
-    opacity: 0.5;
-    cursor: pointer;
-    transition: opacity 0.15s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-    }
+  b {
+    padding-left: 5px;
+    font-size: 14px;
   }
 }
 
