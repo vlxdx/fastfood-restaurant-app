@@ -13,36 +13,60 @@ function Sandwiches({
   decreaseQuantity,
   handleResetQuantity,
 }) {
-  const [selectedLength, setSelectedLength] = useState('');
-  const [selectedBread, setSelectedBread] = useState('');
-  const [selectedToppings, setSelectedToppings] = useState([]);
-  const [selectedDressings, setSelectedDressings] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
-  const handleToppingChange = (e) => {
-    const { value, checked } = e.target;
-    setSelectedToppings((prev) =>
-      checked ? [...prev, value] : prev.filter((topping) => topping !== value)
-    );
-  };
-
-  const handleDressingChange = (e) => {
-    const { value, checked } = e.target;
-    setSelectedDressings((prev) =>
-      checked ? [...prev, value] : prev.filter((dressing) => dressing !== value)
-    );
+  const handleOptionChange = (itemName, optionType, optionValue) => {
+    setSelectedOptions((prevState) => ({
+      ...prevState,
+      [itemName]: {
+        ...prevState[itemName],
+        [optionType]: optionValue,
+      },
+    }));
   };
 
   const handleAddToCart = (item) => {
-    const itemWithOptions = {
-      ...item,
-      options: {
-        length: selectedLength,
-        bread: selectedBread,
-        toppings: selectedToppings,
-        dressings: selectedDressings,
-      },
-    };
-    addToCart(itemWithOptions);
+    const options = selectedOptions[item.Name];
+    if (options && options.Länge && options.Brotart) {
+      let additionalCost = 0;
+
+      if (options.Länge) {
+        const lengthOption = item.Laenge.find(
+          (length) => length.Name === options.Länge
+        );
+        additionalCost += lengthOption ? lengthOption.Preis : 0;
+      }
+
+      if (options.Brotart) {
+        const breadOption = item.Brotart.find(
+          (bread) => bread.Name === options.Brotart
+        );
+        additionalCost += breadOption ? breadOption.Preis : 0;
+      }
+
+      if (options.Toppings) {
+        options.Toppings.forEach((toppingName) => {
+          const toppingOption = item.Toppings.find(
+            (topping) => topping.Name === toppingName
+          );
+          additionalCost += toppingOption ? toppingOption.Preis : 0;
+        });
+      }
+
+      if (options.Dressings) {
+        options.Dressings.forEach((dressingName) => {
+          const dressingOption = item.Dressings.find(
+            (dressing) => dressing.Name === dressingName
+          );
+          additionalCost += dressingOption ? dressingOption.Preis : 0;
+        });
+      }
+
+      const finalPrice = item.Preis + additionalCost;
+      addToCart({ ...item, options, Preis: finalPrice });
+    } else {
+      alert('Bitte wählen Sie die Sandwichlänge und die Brotart. Danke!');
+    }
   };
 
   return (
@@ -73,9 +97,15 @@ function Sandwiches({
                       <div>
                         <input
                           type="radio"
-                          name="length"
+                          name={`length-${item.Name}`}
                           value={length.Name}
-                          onChange={(e) => setSelectedLength(e.target.value)}
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Länge',
+                              e.target.value
+                            )
+                          }
                         />
                         <span className={styles.name}>{length.Name}</span>,{' '}
                         {length.Kcal} Kcal
@@ -93,9 +123,15 @@ function Sandwiches({
                       <div>
                         <input
                           type="radio"
-                          name="bread"
+                          name={`bread-${item.Name}`}
                           value={bread.Name}
-                          onChange={(e) => setSelectedBread(e.target.value)}
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Brotart',
+                              e.target.value
+                            )
+                          }
                         />
                         <span className={styles.name}>{bread.Name}</span>,{' '}
                         {bread.Kcal} Kcal
@@ -113,8 +149,23 @@ function Sandwiches({
                       <div>
                         <input
                           type="checkbox"
+                          name={`topping-${item.Name}`}
                           value={topping.Name}
-                          onChange={handleToppingChange}
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Toppings',
+                              e.target.checked
+                                ? [
+                                    ...(selectedOptions[item.Name]?.Toppings ||
+                                      []),
+                                    topping.Name,
+                                  ]
+                                : selectedOptions[item.Name]?.Toppings.filter(
+                                    (t) => t !== topping.Name
+                                  )
+                            )
+                          }
                         />
                         <span className={styles.name}>{topping.Name}</span>,{' '}
                         {topping.Kcal} Kcal
@@ -132,8 +183,23 @@ function Sandwiches({
                       <div>
                         <input
                           type="checkbox"
+                          name={`dressing-${item.Name}`}
                           value={dressing.Name}
-                          onChange={handleDressingChange}
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Dressings',
+                              e.target.checked
+                                ? [
+                                    ...(selectedOptions[item.Name]?.Dressings ||
+                                      []),
+                                    dressing.Name,
+                                  ]
+                                : selectedOptions[item.Name]?.Dressings.filter(
+                                    (d) => d !== dressing.Name
+                                  )
+                            )
+                          }
                         />
                         <span className={styles.name}>{dressing.Name}</span>,{' '}
                         {dressing.Kcal} Kcal

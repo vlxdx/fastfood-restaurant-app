@@ -81,14 +81,16 @@
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 155,
-                "Typ": "Länge"
+                "Typ": "Länge",
+                "Pflichtfeld": true
               },
               {
                 "Name": "30cm",
                 "Preis": 2.0,
                 "Waehrung": "EUR",
                 "Kcal": 155,
-                "Typ": "Länge"
+                "Typ": "Länge",
+                "Pflichtfeld": true
               }
             ],
             "Brotart": [
@@ -97,21 +99,24 @@
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 155,
-                "Typ": "Brotart"
+                "Typ": "Brotart",
+                "Pflichtfeld": true
               },
               {
                 "Name": "Vollkorn",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 155,
-                "Typ": "Brotart"
+                "Typ": "Brotart",
+                "Pflichtfeld": true
               },
               {
                 "Name": "Weizen",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 155,
-                "Typ": "Brotart"
+                "Typ": "Brotart",
+                "Pflichtfeld": true
               }
             ],
             "Toppings": [
@@ -120,70 +125,80 @@
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Gouda",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Thunfisch",
                 "Preis": 1.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Paprika",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Salat",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Gurken",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Tomaten",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Schinken",
                 "Preis": 1.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Salami",
                 "Preis": 1.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Jalapenos",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               }
             ],
             "Dressings": [
@@ -192,28 +207,32 @@
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Caesar",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Hauseigene Sandwich-Sauce",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Hauseigene Spicy-Sauce",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               }
             ]
           }
@@ -231,21 +250,24 @@
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 225,
-                "Typ": "Bun"
+                "Typ": "Bun",
+                "Pflichtfeld": true
               },
               {
                 "Name": "Black Bun",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 225,
-                "Typ": "Bun"
+                "Typ": "Bun",
+                "Pflichtfeld": true
               },
               {
                 "Name": "Sesam Bun",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 225,
-                "Typ": "Bun"
+                "Typ": "Bun",
+                "Pflichtfeld": true
               }
             ],
             "Toppings": [
@@ -254,70 +276,80 @@
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Gouda",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Toppings"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Thunfisch",
                 "Preis": 1.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Paprika",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Salat",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Gurken",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Tomaten",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Jalapenos",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Plant-Patty",
                 "Preis": 3.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Rindfleisch-Patty",
                 "Preis": 2.5,
                 "Waehrung": "EUR",
                 "Kcal": 15,
-                "Typ": "Topping"
+                "Typ": "Topping",
+                "Pflichtfeld": false
               }
             ],
             "Dressings": [
@@ -326,35 +358,40 @@
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Ketchup",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Senf",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Hauseigene Sandwich-Sauce",
                 "Preis": 0.0,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               },
               {
                 "Name": "Hauseigene Spicy-Sauce",
                 "Preis": 0.5,
                 "Waehrung": "EUR",
                 "Kcal": 25,
-                "Typ": "Dressing"
+                "Typ": "Dressing",
+                "Pflichtfeld": false
               }
             ]
           }

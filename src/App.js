@@ -32,11 +32,17 @@ function App() {
   const [quantities, setQuantities] = useState(initializeQuantities);
 
   const addToCart = (item) => {
-    const itemInCart = cart.find((cartItem) => cartItem.Name === item.Name);
+    const itemInCart = cart.find(
+      (cartItem) =>
+        cartItem.Name === item.Name &&
+        JSON.stringify(cartItem.options) === JSON.stringify(item.options)
+    );
+
     if (itemInCart) {
       setCart(
         cart.map((cartItem) =>
-          cartItem.Name === item.Name
+          cartItem.Name === item.Name &&
+          JSON.stringify(cartItem.options) === JSON.stringify(item.options)
             ? {
                 ...cartItem,
                 quantity: cartItem.quantity + quantities[item.Name],
@@ -47,6 +53,7 @@ function App() {
     } else {
       setCart([...cart, { ...item, quantity: quantities[item.Name] }]);
     }
+
     setQuantities((prev) => ({
       ...prev,
       [item.Name]: 1,
@@ -56,13 +63,21 @@ function App() {
   const removeUnitFromCart = (item) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find(
-        (cartItem) => cartItem.Name === item.Name
+        (cartItem) =>
+          cartItem.Name === item.Name &&
+          JSON.stringify(cartItem.options) === JSON.stringify(item.options)
       );
+
       if (existingItem.quantity === 1) {
-        return prevCart.filter((cartItem) => cartItem.Name !== item.Name);
+        return prevCart.filter(
+          (cartItem) =>
+            cartItem.Name !== item.Name ||
+            JSON.stringify(cartItem.options) !== JSON.stringify(item.options)
+        );
       } else {
         return prevCart.map((cartItem) =>
-          cartItem.Name === item.Name
+          cartItem.Name === item.Name &&
+          JSON.stringify(cartItem.options) === JSON.stringify(item.options)
             ? { ...cartItem, quantity: cartItem.quantity - 1 }
             : cartItem
         );
@@ -70,10 +85,10 @@ function App() {
     });
   };
 
-  const removeFromCart = (item) => {
-    setCart((prevCart) => {
-      return prevCart.filter((cartItem) => cartItem.Name !== item.Name);
-    });
+  const removeFromCart = (index) => {
+    const newCart = [...cart];
+    newCart.splice(index, 1);
+    setCart(newCart);
   };
 
   const increaseQuantity = (name) => {
