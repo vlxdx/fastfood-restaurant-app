@@ -1,39 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Getraenke.module.scss';
 import cola from '../../../assets/images/cola.jpg';
 import btnPlus from '../../../assets/images/btn-plus.svg';
 import btnMinus from '../../../assets/images/btn-minus.svg';
 import btnDelete from '../../../assets/images/btn-delete.svg';
 
-function Getraenke({ items, addToCart }) {
-  const [quantities, setQuantities] = useState(
-    items.reduce((acc, item) => {
-      acc[item.Name] = 1;
-      return acc;
-    }, {})
-  );
-
-  const increaseQuantity = (name) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [name]: prev[name] + 1,
-    }));
-  };
-
-  const decreaseQuantity = (name) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [name]: prev[name] > 1 ? prev[name] - 1 : 1,
-    }));
-  };
-
-  const handleResetQuantity = (name) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [name]: 1,
-    }));
-  };
-
+function Getraenke({
+  items,
+  addToCart,
+  quantities,
+  increaseQuantity,
+  decreaseQuantity,
+  handleResetQuantity,
+}) {
   return (
     <div className={styles.getraenke}>
       <div className={styles.getraenkeText}>

@@ -5,6 +5,13 @@ import Getraenke from '.';
 
 const items = [{ Name: 'Cola', Kcal: 95, Preis: 1.5 }];
 
+const quantities = { Cola: 0 };
+
+const mockAddToCart = jest.fn();
+const mockIncreaseQuantity = jest.fn();
+const mockDecreaseQuantity = jest.fn();
+const mockHandleResetQuantity = jest.fn();
+
 describe('Getraenke component', () => {
   test('renders without crashing with empty items', () => {
     render(<Getraenke items={[]} addToCart={jest.fn()} />);
@@ -13,21 +20,62 @@ describe('Getraenke component', () => {
     expect(screen.getByText('Auswahl:')).toBeInTheDocument();
   });
 
-  test('renders correctly with given item', () => {
-    render(<Getraenke items={items} addToCart={jest.fn()} />);
-    expect(screen.getByText('Cola')).toBeInTheDocument();
-    expect(screen.getByText('95 Kcal')).toBeInTheDocument();
-    expect(screen.getByText('Einzelpreis: 1.50 EUR')).toBeInTheDocument();
+  test('renders component with items', () => {
+    render(
+      <Getraenke
+        items={items}
+        addToCart={mockAddToCart}
+        quantities={quantities}
+        increaseQuantity={mockIncreaseQuantity}
+        decreaseQuantity={mockDecreaseQuantity}
+        handleResetQuantity={mockHandleResetQuantity}
+      />
+    );
+
+    items.forEach((item) => {
+      expect(screen.getByText(item.Name)).toBeInTheDocument();
+      expect(screen.getByText(`${item.Kcal} Kcal`)).toBeInTheDocument();
+      expect(
+        screen.getByText(`Einzelpreis: ${item.Preis.toFixed(2)} EUR`)
+      ).toBeInTheDocument();
+    });
   });
 
-  test('calls addToCart when Hinzufügen button is clicked', () => {
-    const addToCart = jest.fn();
-    render(<Getraenke items={items} addToCart={addToCart} />);
+  test('increases and decreases quantity', () => {
+    render(
+      <Getraenke
+        items={items}
+        addToCart={mockAddToCart}
+        quantities={quantities}
+        increaseQuantity={mockIncreaseQuantity}
+        decreaseQuantity={mockDecreaseQuantity}
+        handleResetQuantity={mockHandleResetQuantity}
+      />
+    );
+
+    const increaseButton = screen.getAllByAltText('Plus')[0];
+    fireEvent.click(increaseButton);
+    expect(mockIncreaseQuantity).toHaveBeenCalledWith(items[0].Name);
+
+    const decreaseButton = screen.getAllByAltText('Minus')[0];
+    fireEvent.click(decreaseButton);
+    expect(mockDecreaseQuantity).toHaveBeenCalledWith(items[0].Name);
+  });
+
+  test('adds an item to the cart', () => {
+    render(
+      <Getraenke
+        items={items}
+        addToCart={mockAddToCart}
+        quantities={quantities}
+        increaseQuantity={mockIncreaseQuantity}
+        decreaseQuantity={mockDecreaseQuantity}
+        handleResetQuantity={mockHandleResetQuantity}
+      />
+    );
 
     const addButton = screen.getAllByText('Hinzufügen')[0];
     fireEvent.click(addButton);
-
-    expect(addToCart).toHaveBeenCalledTimes(1);
-    expect(addToCart).toHaveBeenCalledWith(items[0]);
+    expect(mockAddToCart).toHaveBeenCalledWith(items[0]);
   });
 });

@@ -18,24 +18,39 @@ import Notfoundpage from './pages/Notfoundpage/Notfoundpage';
 
 function App() {
   const [cartOpened, setCartOpened] = useState(false);
-
   const [cart, setCart] = useState([]);
 
+  const initializeQuantities = () => {
+    return menuData.Speisekarte.Kategorien.reduce((acc, category) => {
+      category.Artikel.forEach((item) => {
+        acc[item.Name] = 1;
+      });
+      return acc;
+    }, {});
+  };
+
+  const [quantities, setQuantities] = useState(initializeQuantities);
+
   const addToCart = (item) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(
-        (cartItem) => cartItem.Name === item.Name
-      );
-      if (existingItem) {
-        return prevCart.map((cartItem) =>
+    const itemInCart = cart.find((cartItem) => cartItem.Name === item.Name);
+    if (itemInCart) {
+      setCart(
+        cart.map((cartItem) =>
           cartItem.Name === item.Name
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? {
+                ...cartItem,
+                quantity: cartItem.quantity + quantities[item.Name],
+              }
             : cartItem
-        );
-      } else {
-        return [...prevCart, { ...item, quantity: 1 }];
-      }
-    });
+        )
+      );
+    } else {
+      setCart([...cart, { ...item, quantity: quantities[item.Name] }]);
+    }
+    setQuantities((prev) => ({
+      ...prev,
+      [item.Name]: 1,
+    }));
   };
 
   const removeUnitFromCart = (item) => {
@@ -59,6 +74,27 @@ function App() {
     setCart((prevCart) => {
       return prevCart.filter((cartItem) => cartItem.Name !== item.Name);
     });
+  };
+
+  const increaseQuantity = (name) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [name]: prev[name] + 1,
+    }));
+  };
+
+  const decreaseQuantity = (name) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [name]: prev[name] > 1 ? prev[name] - 1 : 1,
+    }));
+  };
+
+  const handleResetQuantity = (name) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [name]: 1,
+    }));
   };
 
   return (
@@ -86,6 +122,10 @@ function App() {
                 <Getraenke
                   items={menuData.Speisekarte.Kategorien[0].Artikel}
                   addToCart={addToCart}
+                  quantities={quantities}
+                  increaseQuantity={increaseQuantity}
+                  decreaseQuantity={decreaseQuantity}
+                  handleResetQuantity={handleResetQuantity}
                 />
               }
             />
@@ -95,6 +135,10 @@ function App() {
                 <Sandwiches
                   items={menuData.Speisekarte.Kategorien[1].Artikel}
                   addToCart={addToCart}
+                  quantities={quantities}
+                  increaseQuantity={increaseQuantity}
+                  decreaseQuantity={decreaseQuantity}
+                  handleResetQuantity={handleResetQuantity}
                 />
               }
             />
@@ -104,6 +148,10 @@ function App() {
                 <Burger
                   items={menuData.Speisekarte.Kategorien[2].Artikel}
                   addToCart={addToCart}
+                  quantities={quantities}
+                  increaseQuantity={increaseQuantity}
+                  decreaseQuantity={decreaseQuantity}
+                  handleResetQuantity={handleResetQuantity}
                 />
               }
             />
@@ -113,6 +161,10 @@ function App() {
                 <Beilagen
                   items={menuData.Speisekarte.Kategorien[3].Artikel}
                   addToCart={addToCart}
+                  quantities={quantities}
+                  increaseQuantity={increaseQuantity}
+                  decreaseQuantity={decreaseQuantity}
+                  handleResetQuantity={handleResetQuantity}
                 />
               }
             />
@@ -122,6 +174,10 @@ function App() {
                 <Salate
                   items={menuData.Speisekarte.Kategorien[4].Artikel}
                   addToCart={addToCart}
+                  quantities={quantities}
+                  increaseQuantity={increaseQuantity}
+                  decreaseQuantity={decreaseQuantity}
+                  handleResetQuantity={handleResetQuantity}
                 />
               }
             />

@@ -56,12 +56,53 @@
   .info {
     display: flex;
     align-items: center;
+
+    .quantityPrice {
+      display: flex;
+      align-items: center;
+    }
+
+    .removeBtn {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.15s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .quantitySelector {
+      width: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #f3f3f3;
+      border-radius: 10px;
+      margin-left: 5px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+    b {
+      width: 55px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      b {
+        display: none;
+      }
+    }
   }
 
-  .preis {
-    padding-right: 30px;
-    font-weight: 500;
-    font-style: italic;
+  i {
+    font-size: 14px;
   }
 
   button {
