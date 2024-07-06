@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import styles from './Sandwiches.module.scss';
 import sandwich from '../../../assets/images/sandwich.jpg';
+import btnPlus from '../../../assets/images/btn-plus.svg';
+import btnMinus from '../../../assets/images/btn-minus.svg';
+import btnDelete from '../../../assets/images/btn-delete.svg';
 
-function Sandwiches({ items, addToCart }) {
+function Sandwiches({
+  items,
+  addToCart,
+  quantities,
+  increaseQuantity,
+  decreaseQuantity,
+  handleResetQuantity,
+}) {
   const [selectedLength, setSelectedLength] = useState('');
   const [selectedBread, setSelectedBread] = useState('');
   const [selectedToppings, setSelectedToppings] = useState([]);
@@ -53,10 +63,8 @@ function Sandwiches({ items, addToCart }) {
             {items.map((item) => (
               <div key={item.Name}>
                 <div className={styles.sandwichHeader}>
-                  {item.Name}
-                  <span className={styles.sandwichPreis}>
-                    - {item.Preis.toFixed(2)} EUR
-                  </span>
+                  <div className={styles.itemName}>{item.Name}</div>
+                  <i>Grundpreis: {item.Preis.toFixed(2)} EUR</i>
                 </div>
                 <div>
                   <label>Länge:</label>
@@ -136,9 +144,40 @@ function Sandwiches({ items, addToCart }) {
                     </div>
                   ))}
                 </div>
-                <button onClick={() => handleAddToCart(item)}>
-                  Hinzufügen
-                </button>
+                <div className={styles.info}>
+                  <div className={styles.quantityPrice}>
+                    <div>
+                      <div className={styles.quantitySelector}>
+                        <img
+                          className={styles.removeBtn}
+                          width={24}
+                          src={btnMinus}
+                          alt="Minus"
+                          onClick={() => decreaseQuantity(item.Name)}
+                        />
+                        <span>{quantities[item.Name]}</span>
+                        <img
+                          className={styles.removeBtn}
+                          width={24}
+                          src={btnPlus}
+                          alt="Plus"
+                          onClick={() => increaseQuantity(item.Name)}
+                        />
+                      </div>
+                    </div>
+                    <b>{(quantities[item.Name] * item.Preis).toFixed(2)} EUR</b>
+                  </div>
+                  <button onClick={() => handleAddToCart(item)}>
+                    Hinzufügen
+                  </button>
+                  <img
+                    className={styles.removeBtn}
+                    width={28}
+                    src={btnDelete}
+                    alt="Delete"
+                    onClick={() => handleResetQuantity(item.Name)}
+                  />
+                </div>
               </div>
             ))}
           </div>
