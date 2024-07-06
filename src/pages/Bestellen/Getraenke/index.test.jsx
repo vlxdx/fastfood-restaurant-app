@@ -17,7 +17,7 @@ describe('Getraenke component', () => {
     render(<Getraenke items={items} addToCart={jest.fn()} />);
     expect(screen.getByText('Cola')).toBeInTheDocument();
     expect(screen.getByText('95 Kcal')).toBeInTheDocument();
-    expect(screen.getByText('1.50 EUR')).toBeInTheDocument();
+    expect(screen.getByText('Einzelpreis: 1.50 EUR')).toBeInTheDocument();
   });
 
   test('calls addToCart when Hinzufügen button is clicked', () => {
