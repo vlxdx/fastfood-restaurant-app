@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/fastfood-restaurant-app/static/css/main.b83cee3d.css",
-    "main.js": "/fastfood-restaurant-app/static/js/main.6f3c19b1.js",
+    "main.css": "/fastfood-restaurant-app/static/css/main.ec23161d.css",
+    "main.js": "/fastfood-restaurant-app/static/js/main.558392c6.js",
     "static/media/burger.jpg": "/fastfood-restaurant-app/static/media/burger.0397efdb889de134e1e2.jpg",
     "static/media/sandwich.jpg": "/fastfood-restaurant-app/static/media/sandwich.6c7f139875c64ca290ef.jpg",
     "static/media/fries.jpg": "/fastfood-restaurant-app/static/media/fries.61de6c661ce4a4702f99.jpg",
@@ -16,14 +16,17 @@
     "static/media/getraenke.png": "/fastfood-restaurant-app/static/media/getraenke.03d8ea8e3103f8eb1301.png",
     "static/media/empty-cart.png": "/fastfood-restaurant-app/static/media/empty-cart.bf03f96cb2af4508c967.png",
     "static/media/cart.svg": "/fastfood-restaurant-app/static/media/cart.509d5180dd293057c7e298020fefd8cb.svg",
+    "static/media/btn-remove.svg": "/fastfood-restaurant-app/static/media/btn-remove.4fb611aa91887cc86bbbd16601310604.svg",
+    "static/media/btn-delete.svg": "/fastfood-restaurant-app/static/media/btn-delete.167680fa3af091fd2ddf1a489ad1481a.svg",
     "index.html": "/fastfood-restaurant-app/index.html",
-    "static/media/btn-remove.svg": "/fastfood-restaurant-app/static/media/btn-remove.b1fef0aa93fbf25374f4991d23f900d8.svg",
+    "static/media/btn-plus.svg": "/fastfood-restaurant-app/static/media/btn-plus.012435d611d2548e2780fa20ea57780c.svg",
+    "static/media/btn-minus.svg": "/fastfood-restaurant-app/static/media/btn-minus.9646c723442fa9db9e28c8a79d7d935e.svg",
     "static/media/arrow.svg": "/fastfood-restaurant-app/static/media/arrow.fc3222511ec5a224a4abf3bbf4c2566f.svg",
-    "main.b83cee3d.css.map": "/fastfood-restaurant-app/static/css/main.b83cee3d.css.map",
-    "main.6f3c19b1.js.map": "/fastfood-restaurant-app/static/js/main.6f3c19b1.js.map"
+    "main.ec23161d.css.map": "/fastfood-restaurant-app/static/css/main.ec23161d.css.map",
+    "main.558392c6.js.map": "/fastfood-restaurant-app/static/js/main.558392c6.js.map"
   },
   "entrypoints": [
-    "static/css/main.b83cee3d.css",
-    "static/js/main.6f3c19b1.js"
+    "static/css/main.ec23161d.css",
+    "static/js/main.558392c6.js"
   ]
 }
