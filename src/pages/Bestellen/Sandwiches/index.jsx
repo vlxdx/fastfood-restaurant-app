@@ -4,6 +4,7 @@ import sandwich from '../../../assets/images/sandwich.jpg';
 import btnPlus from '../../../assets/images/btn-plus.svg';
 import btnMinus from '../../../assets/images/btn-minus.svg';
 import btnDelete from '../../../assets/images/btn-delete.svg';
+import { v4 as uuidv4 } from 'uuid';
 
 function Sandwiches({
   items,
@@ -70,7 +71,8 @@ function Sandwiches({
     const options = selectedOptions[item.Name];
     if (options && options.Länge && options.Brotart) {
       const finalPrice = calculatePrice(item);
-      addToCart({ ...item, options, Preis: finalPrice });
+      const uniqueId = uuidv4();
+      addToCart({ ...item, options, Preis: finalPrice, id: uniqueId });
 
       setSelectedOptions((prevState) => ({
         ...prevState,
@@ -97,7 +99,7 @@ function Sandwiches({
           <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.sandwich}>
             {items.map((item) => (
-              <div key={item.Name}>
+              <div key={uuidv4()}>
                 <div className={styles.sandwichHeader}>
                   <div className={styles.itemName}>{item.Name}</div>
                   <i>Grundpreis: {item.Preis.toFixed(2)} EUR</i>

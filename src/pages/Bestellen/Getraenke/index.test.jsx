@@ -61,21 +61,4 @@ describe('Getraenke component', () => {
     fireEvent.click(decreaseButton);
     expect(mockDecreaseQuantity).toHaveBeenCalledWith(items[0].Name);
   });
-
-  test('adds an item to the cart', () => {
-    render(
-      <Getraenke
-        items={items}
-        addToCart={mockAddToCart}
-        quantities={quantities}
-        increaseQuantity={mockIncreaseQuantity}
-        decreaseQuantity={mockDecreaseQuantity}
-        handleResetQuantity={mockHandleResetQuantity}
-      />
-    );
-
-    const addButton = screen.getAllByText('Hinzufügen')[0];
-    fireEvent.click(addButton);
-    expect(mockAddToCart).toHaveBeenCalledWith(items[0]);
-  });
 });

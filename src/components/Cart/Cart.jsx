@@ -38,7 +38,7 @@ function Cart({
           <div style={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
             <div className={styles.items}>
               {cart.map((item) => (
-                <div key={item.Name} className={styles.cartItem}>
+                <div key={item.id} className={styles.cartItem}>
                   <div>
                     <div>{item.Name}</div>
                     <i>Einzelpreis: {item.Preis.toFixed(2)} EUR</i>

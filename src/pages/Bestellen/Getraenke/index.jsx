@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Getraenke.module.scss';
 import cola from '../../../assets/images/cola.jpg';
 import btnPlus from '../../../assets/images/btn-plus.svg';
 import btnMinus from '../../../assets/images/btn-minus.svg';
 import btnDelete from '../../../assets/images/btn-delete.svg';
+import { v4 as uuidv4 } from 'uuid';
 
 function Getraenke({
   items,
@@ -13,6 +14,16 @@ function Getraenke({
   decreaseQuantity,
   handleResetQuantity,
 }) {
+  const [itemsWithId, setItemsWithId] = useState([]);
+
+  useEffect(() => {
+    const itemsWithUniqueIds = items.map((item) => ({
+      ...item,
+      id: uuidv4(),
+    }));
+    setItemsWithId(itemsWithUniqueIds);
+  }, [items]);
+
   return (
     <div className={styles.getraenke}>
       <div className={styles.getraenkeText}>
@@ -29,8 +40,8 @@ function Getraenke({
           <div className={styles.auswahl}>Auswahl:</div>
           <div className={styles.drink}>
             <ul>
-              {items.map((item) => (
-                <li key={item.Name}>
+              {itemsWithId.map((item) => (
+                <li key={item.id}>
                   <div>
                     <div className={styles.name}>{item.Name}</div>
                     <div>{item.Kcal} Kcal</div>
