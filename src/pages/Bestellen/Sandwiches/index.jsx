@@ -105,12 +105,13 @@ function Sandwiches({
                   <i>Grundpreis: {item.Preis.toFixed(2)} EUR</i>
                 </div>
                 <div>
-                  <label>Länge:</label>
+                  <label htmlFor={`length-${item.Name}`}>Länge:</label>
                   {item.Laenge.map((length) => (
                     <div key={length.Name} className={styles.option}>
                       <div>
                         <input
                           type="radio"
+                          id={`length-${item.Name}-${length.Name}`}
                           name={`length-${item.Name}`}
                           value={length.Name}
                           checked={
@@ -134,12 +135,13 @@ function Sandwiches({
                   ))}
                 </div>
                 <div>
-                  <label>Brotart:</label>
+                  <label htmlFor={`bread-${item.Name}`}>Brotart:</label>
                   {item.Brotart.map((bread) => (
                     <div key={bread.Name} className={styles.option}>
                       <div>
                         <input
                           type="radio"
+                          id={`bread-${item.Name}-${bread.Name}`}
                           name={`bread-${item.Name}`}
                           value={bread.Name}
                           checked={
@@ -163,12 +165,13 @@ function Sandwiches({
                   ))}
                 </div>
                 <div>
-                  <label>Toppings:</label>
+                  <label htmlFor={`topping-${item.Name}`}>Toppings:</label>
                   {item.Toppings.map((topping) => (
                     <div key={topping.Name} className={styles.option}>
                       <div>
                         <input
                           type="checkbox"
+                          id={`topping-${item.Name}-${topping.Name}`}
                           name={`topping-${item.Name}`}
                           value={topping.Name}
                           checked={
@@ -202,12 +205,13 @@ function Sandwiches({
                   ))}
                 </div>
                 <div>
-                  <label>Dressings:</label>
+                  <label htmlFor={`dressing-${item.Name}`}>Dressings:</label>
                   {item.Dressings.map((dressing) => (
                     <div key={dressing.Name} className={styles.option}>
                       <div>
                         <input
                           type="checkbox"
+                          id={`dressing-${item.Name}-${dressing.Name}`}
                           name={`dressing-${item.Name}`}
                           value={dressing.Name}
                           checked={

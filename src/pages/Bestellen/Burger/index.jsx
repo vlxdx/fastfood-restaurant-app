@@ -96,12 +96,13 @@ function Burger({
                   <i>Grundpreis: {item.Preis.toFixed(2)} EUR</i>
                 </div>
                 <div>
-                  <label>Buns:</label>
+                  <label htmlFor={`bun-${item.Name}`}>Buns:</label>
                   {item.Buns.map((bun) => (
                     <div key={bun.Name} className={styles.option}>
                       <div>
                         <input
                           type="radio"
+                          id={`bun-${item.Name}-${bun.Name}`}
                           name={`bun-${item.Name}`}
                           value={bun.Name}
                           checked={selectedOptions[item.Name]?.Bun === bun.Name}
@@ -119,12 +120,13 @@ function Burger({
                   ))}
                 </div>
                 <div>
-                  <label>Toppings:</label>
+                  <label htmlFor={`topping-${item.Name}`}>Toppings:</label>
                   {item.Toppings.map((topping) => (
                     <div key={topping.Name} className={styles.option}>
                       <div>
                         <input
                           type="checkbox"
+                          id={`topping-${item.Name}-${topping.Name}`}
                           name={`topping-${item.Name}`}
                           value={topping.Name}
                           checked={
@@ -158,12 +160,13 @@ function Burger({
                   ))}
                 </div>
                 <div>
-                  <label>Dressings:</label>
+                  <label htmlFor={`dressing-${item.Name}`}>Dressings:</label>
                   {item.Dressings.map((dressing) => (
                     <div key={dressing.Name} className={styles.option}>
                       <div>
                         <input
                           type="checkbox"
+                          id={`dressing-${item.Name}-${dressing.Name}`}
                           name={`dressing-${item.Name}`}
                           value={dressing.Name}
                           checked={
