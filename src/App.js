@@ -85,10 +85,14 @@ function App() {
     });
   };
 
-  const removeFromCart = (index) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
+  const removeFromCart = (item) => {
+    setCart((prevCart) =>
+      prevCart.filter(
+        (cartItem) =>
+          cartItem.Name !== item.Name ||
+          JSON.stringify(cartItem.options) !== JSON.stringify(item.options)
+      )
+    );
   };
 
   const increaseQuantity = (name) => {

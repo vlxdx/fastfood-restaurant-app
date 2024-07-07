@@ -13,34 +13,63 @@ function Burger({
   decreaseQuantity,
   handleResetQuantity,
 }) {
-  const [selectedBun, setSelectedBun] = useState('');
-  const [selectedToppings, setSelectedToppings] = useState([]);
-  const [selectedDressings, setSelectedDressings] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
-  const handleToppingChange = (e) => {
-    const { value, checked } = e.target;
-    setSelectedToppings((prev) =>
-      checked ? [...prev, value] : prev.filter((topping) => topping !== value)
-    );
+  const handleOptionChange = (itemName, optionType, optionValue) => {
+    setSelectedOptions((prevState) => ({
+      ...prevState,
+      [itemName]: {
+        ...prevState[itemName],
+        [optionType]: optionValue,
+      },
+    }));
   };
 
-  const handleDressingChange = (e) => {
-    const { value, checked } = e.target;
-    setSelectedDressings((prev) =>
-      checked ? [...prev, value] : prev.filter((dressing) => dressing !== value)
-    );
+  const calculatePrice = (item) => {
+    const options = selectedOptions[item.Name];
+    let additionalCost = 0;
+
+    if (options) {
+      if (options.Bun) {
+        const bunOption = item.Buns.find((bun) => bun.Name === options.Bun);
+        additionalCost += bunOption ? bunOption.Preis : 0;
+      }
+
+      if (options.Toppings) {
+        options.Toppings.forEach((toppingName) => {
+          const toppingOption = item.Toppings.find(
+            (topping) => topping.Name === toppingName
+          );
+          additionalCost += toppingOption ? toppingOption.Preis : 0;
+        });
+      }
+
+      if (options.Dressings) {
+        options.Dressings.forEach((dressingName) => {
+          const dressingOption = item.Dressings.find(
+            (dressing) => dressing.Name === dressingName
+          );
+          additionalCost += dressingOption ? dressingOption.Preis : 0;
+        });
+      }
+    }
+
+    return item.Preis + additionalCost;
   };
 
   const handleAddToCart = (item) => {
-    const itemWithOptions = {
-      ...item,
-      options: {
-        bun: selectedBun,
-        toppings: selectedToppings,
-        dressings: selectedDressings,
-      },
-    };
-    addToCart(itemWithOptions);
+    const options = selectedOptions[item.Name];
+    if (options && options.Bun) {
+      const finalPrice = calculatePrice(item);
+      addToCart({ ...item, options, Preis: finalPrice });
+
+      setSelectedOptions((prevState) => ({
+        ...prevState,
+        [item.Name]: {},
+      }));
+    } else {
+      alert('Bitte wählen Sie die Art des Buns. Danke!');
+    }
   };
 
   return (
@@ -71,9 +100,12 @@ function Burger({
                       <div>
                         <input
                           type="radio"
-                          name="bun"
+                          name={`bun-${item.Name}`}
                           value={bun.Name}
-                          onChange={(e) => setSelectedBun(e.target.value)}
+                          checked={selectedOptions[item.Name]?.Bun === bun.Name}
+                          onChange={(e) =>
+                            handleOptionChange(item.Name, 'Bun', e.target.value)
+                          }
                         />
                         <span className={styles.name}>{bun.Name}</span>,{' '}
                         {bun.Kcal} Kcal
@@ -91,8 +123,28 @@ function Burger({
                       <div>
                         <input
                           type="checkbox"
+                          name={`topping-${item.Name}`}
                           value={topping.Name}
-                          onChange={handleToppingChange}
+                          checked={
+                            selectedOptions[item.Name]?.Toppings?.includes(
+                              topping.Name
+                            ) || false
+                          }
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Toppings',
+                              e.target.checked
+                                ? [
+                                    ...(selectedOptions[item.Name]?.Toppings ||
+                                      []),
+                                    topping.Name,
+                                  ]
+                                : selectedOptions[item.Name]?.Toppings.filter(
+                                    (t) => t !== topping.Name
+                                  )
+                            )
+                          }
                         />
                         <span className={styles.name}>{topping.Name}</span>,{' '}
                         {topping.Kcal} Kcal
@@ -110,8 +162,28 @@ function Burger({
                       <div>
                         <input
                           type="checkbox"
+                          name={`dressing-${item.Name}`}
                           value={dressing.Name}
-                          onChange={handleDressingChange}
+                          checked={
+                            selectedOptions[item.Name]?.Dressings?.includes(
+                              dressing.Name
+                            ) || false
+                          }
+                          onChange={(e) =>
+                            handleOptionChange(
+                              item.Name,
+                              'Dressings',
+                              e.target.checked
+                                ? [
+                                    ...(selectedOptions[item.Name]?.Dressings ||
+                                      []),
+                                    dressing.Name,
+                                  ]
+                                : selectedOptions[item.Name]?.Dressings.filter(
+                                    (d) => d !== dressing.Name
+                                  )
+                            )
+                          }
                         />
                         <span className={styles.name}>{dressing.Name}</span>,{' '}
                         {dressing.Kcal} Kcal
@@ -143,7 +215,12 @@ function Burger({
                         />
                       </div>
                     </div>
-                    <b>{(quantities[item.Name] * item.Preis).toFixed(2)} EUR</b>
+                    <b>
+                      {(quantities[item.Name] * calculatePrice(item)).toFixed(
+                        2
+                      )}{' '}
+                      EUR
+                    </b>
                   </div>
                   <button onClick={() => handleAddToCart(item)}>
                     Hinzufügen

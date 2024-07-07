@@ -25,11 +25,11 @@ function Sandwiches({
     }));
   };
 
-  const handleAddToCart = (item) => {
+  const calculatePrice = (item) => {
     const options = selectedOptions[item.Name];
-    if (options && options.Länge && options.Brotart) {
-      let additionalCost = 0;
+    let additionalCost = 0;
 
+    if (options) {
       if (options.Länge) {
         const lengthOption = item.Laenge.find(
           (length) => length.Name === options.Länge
@@ -61,9 +61,21 @@ function Sandwiches({
           additionalCost += dressingOption ? dressingOption.Preis : 0;
         });
       }
+    }
 
-      const finalPrice = item.Preis + additionalCost;
+    return item.Preis + additionalCost;
+  };
+
+  const handleAddToCart = (item) => {
+    const options = selectedOptions[item.Name];
+    if (options && options.Länge && options.Brotart) {
+      const finalPrice = calculatePrice(item);
       addToCart({ ...item, options, Preis: finalPrice });
+
+      setSelectedOptions((prevState) => ({
+        ...prevState,
+        [item.Name]: {},
+      }));
     } else {
       alert('Bitte wählen Sie die Sandwichlänge und die Brotart. Danke!');
     }
@@ -99,6 +111,9 @@ function Sandwiches({
                           type="radio"
                           name={`length-${item.Name}`}
                           value={length.Name}
+                          checked={
+                            selectedOptions[item.Name]?.Länge === length.Name
+                          }
                           onChange={(e) =>
                             handleOptionChange(
                               item.Name,
@@ -125,6 +140,9 @@ function Sandwiches({
                           type="radio"
                           name={`bread-${item.Name}`}
                           value={bread.Name}
+                          checked={
+                            selectedOptions[item.Name]?.Brotart === bread.Name
+                          }
                           onChange={(e) =>
                             handleOptionChange(
                               item.Name,
@@ -151,6 +169,11 @@ function Sandwiches({
                           type="checkbox"
                           name={`topping-${item.Name}`}
                           value={topping.Name}
+                          checked={
+                            selectedOptions[item.Name]?.Toppings?.includes(
+                              topping.Name
+                            ) || false
+                          }
                           onChange={(e) =>
                             handleOptionChange(
                               item.Name,
@@ -185,6 +208,11 @@ function Sandwiches({
                           type="checkbox"
                           name={`dressing-${item.Name}`}
                           value={dressing.Name}
+                          checked={
+                            selectedOptions[item.Name]?.Dressings?.includes(
+                              dressing.Name
+                            ) || false
+                          }
                           onChange={(e) =>
                             handleOptionChange(
                               item.Name,
@@ -231,7 +259,12 @@ function Sandwiches({
                         />
                       </div>
                     </div>
-                    <b>{(quantities[item.Name] * item.Preis).toFixed(2)} EUR</b>
+                    <b>
+                      {(quantities[item.Name] * calculatePrice(item)).toFixed(
+                        2
+                      )}{' '}
+                      EUR
+                    </b>
                   </div>
                   <button onClick={() => handleAddToCart(item)}>
                     Hinzufügen
